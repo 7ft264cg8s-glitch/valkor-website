@@ -38,7 +38,7 @@ export function Header() {
 
         <div className="hidden lg:block">
           <Button href="#request-pilot" className="px-4 py-2.5">
-            Request Pilot Information
+            Request Pilot Review
           </Button>
         </div>
 
@@ -67,7 +67,7 @@ export function Header() {
               </Link>
             ))}
             <Button href="#request-pilot" onClick={() => setOpen(false)} className="mt-2 w-full">
-              Request Pilot Information
+              Request Pilot Review
             </Button>
           </div>
         </div>

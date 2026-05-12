@@ -90,6 +90,24 @@ export const helpsSchoolsDo: IconCard[] = [
   }
 ];
 
+export const whyNowCards = [
+  {
+    title: "More movement to manage",
+    description:
+      "Schools are managing hall passes, transitions, office visits, late arrivals, early dismissals, lunch movement, and event-day flow with limited live context."
+  },
+  {
+    title: "Disconnected tools",
+    description:
+      "Radios, hallway cameras, paper passes, staff memory, and disconnected systems leave gaps between what happened and what administrators can review."
+  },
+  {
+    title: "Faster follow-up expectations",
+    description:
+      "Administrators need a structured way to understand movement, assign response, and document outcomes without turning every signal into a crisis."
+  }
+];
+
 export const howItWorksSteps: IconCard[] = [
   {
     title: "Approved badges emit local building signals",
@@ -115,6 +133,35 @@ export const howItWorksSteps: IconCard[] = [
       "The dashboard shows zone-level state, incidents, confidence, stale data, receiver health, and recommended next steps.",
     icon: MonitorCheck
   }
+];
+
+export const signalDecisionFlow = [
+  "Approved badge emits a local signal",
+  "Receiver detects the signal in a school-defined zone",
+  "Valkor checks freshness and receiver health",
+  "Confidence engine estimates zone state",
+  "Movement engine compares pass context and expected route",
+  "Dashboard surfaces reviewable operational context",
+  "Approved administrator decides next action",
+  "Incident outcome is logged for reporting"
+];
+
+export const movementSignals = [
+  "Pass status",
+  "Expected route",
+  "Current zone",
+  "Last confirmed zone",
+  "Time out of class",
+  "Zone crowding",
+  "Route deviation",
+  "Repeated movement pattern",
+  "Restricted-zone presence",
+  "Receiver health",
+  "Signal freshness",
+  "Confidence score",
+  "Incident history",
+  "Staff assignment state",
+  "Resolution outcome"
 ];
 
 export const pilotScope = [
@@ -149,16 +196,87 @@ export const pilotMetrics = [
   "End-of-pilot recommendations"
 ];
 
+export const pilotOutcomes = [
+  "How reliable zone-level visibility is",
+  "Which areas create the most movement confusion",
+  "How often students are overdue or off-route",
+  "Whether administrators find the dashboard useful",
+  "Which alerts are valuable versus noisy",
+  "Where receiver coverage needs improvement",
+  "How Valkor fits into existing school workflows",
+  "Whether the system is trusted enough for expanded deployment"
+];
+
+export const stakeholderValue: IconCard[] = [
+  {
+    title: "Principal",
+    description: "Faster visibility into movement issues, fewer blind spots, and better incident follow-up.",
+    icon: School
+  },
+  {
+    title: "Assistant principal / dean",
+    description: "Pass accountability, hallway patterns, student follow-up, and incident review.",
+    icon: UserCheck
+  },
+  {
+    title: "IT / security reviewer",
+    description: "Receiver health, access control, audit logs, system confidence, and limited data scope.",
+    icon: MonitorCheck
+  },
+  {
+    title: "District / safety team",
+    description: "Scalable operational awareness, reporting, and an emergency-readiness foundation.",
+    icon: ShieldCheck
+  },
+  {
+    title: "Parents / community",
+    description: "No GPS, no cameras, no biometrics, no home tracking, and school-controlled use.",
+    icon: LockKeyhole
+  }
+];
+
 export const dailyVisibilityUseCases = [
   "Students out longer than expected",
   "Movement outside approved pass routes",
   "Hallway or bathroom accountability",
+  "Students leaving class without a pass",
   "Repeated gathering zones",
+  "Bathroom crowding patterns",
+  "Repeated hallway clustering",
+  "Multiple students converging toward the same area",
   "Restricted-zone visibility",
+  "Exit-area awareness",
+  "Office-wing movement",
+  "Cafeteria overflow or crowding",
+  "Gym/locker-room movement awareness",
+  "Late arrival movement through the building",
+  "Early dismissal coordination",
+  "Nurse/office visit accountability",
+  "Staff response follow-up",
+  "Students missing from expected zones",
   "Receiver/device health",
   "Stale or missing signal awareness",
   "Incident acknowledgement and resolution",
-  "Operational reporting after a pilot or drill"
+  "Incident history review",
+  "After-action reporting",
+  "Pilot trend reports",
+  "Repeated time-of-day movement issues",
+  "Route deviation patterns",
+  "Zone congestion before passing periods",
+  "Potential gathering-risk signals",
+  "Drill accountability support",
+  "Event-day movement visibility",
+  "Substitute teacher support for student movement",
+  "Admin coverage gaps",
+  "Bathroom supervision planning",
+  "Lunch-period movement management",
+  "Transition-period awareness"
+];
+
+export const carefulScenarioNotes = [
+  "Operational attendance context: understand whether a student is in class, out on an approved pass, overdue, or appearing in an unexpected zone after attendance has been taken.",
+  "Conflict review context: surface convergence, clustering, restricted-zone movement, or repeated route deviations that may warrant staff review.",
+  "External alert context: when a vape sensor or external alert is triggered, Valkor can help administrators review who was recently present in the relevant zone, subject to school policy and human review."
 ];
 
 export const operationalData = [
@@ -262,6 +380,14 @@ export const futureDevelopment = [
   "After-action reporting"
 ];
 
+export const roadmapPhases = [
+  "Daily operational awareness",
+  "Pattern intelligence and reporting",
+  "Incident coordination",
+  "Emergency readiness infrastructure",
+  "District-scale operational intelligence"
+];
+
 export const trustStack = [
   "No GPS",
   "No biometrics",
@@ -301,6 +427,21 @@ export const missionCards: IconCard[] = [
     title: "Operational intelligence",
     description: "Help schools understand receiver health, confidence levels, incident follow-up, and pilot results.",
     icon: BarChart3
+  }
+];
+
+export const pilotProofCards = [
+  {
+    title: "Usefulness",
+    description: "Do administrators get clearer follow-up context without adding operational burden?"
+  },
+  {
+    title: "Reliability",
+    description: "Where is receiver coverage strong, stale, weak, or in need of adjustment?"
+  },
+  {
+    title: "Trust",
+    description: "Can the school explain the data, boundaries, access model, and human-reviewed workflow?"
   }
 ];
 
@@ -591,7 +732,7 @@ export const platformFeatures: IconCard[] = [
   },
   {
     title: "Overdue Movement Alerts",
-    description: "Surface trips that may need follow-up without automatic discipline decisions.",
+    description: "Surface trips that may need follow-up while keeping discipline decisions with school staff.",
     icon: Clock
   },
   {

@@ -2,6 +2,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import {
+  BuyerValueSection,
   DoesNotDoSection,
   FAQPreviewSection,
   FutureRoadmapSection,
@@ -9,6 +10,7 @@ import {
   HowItWorksSection,
   IncidentWorkflowSection,
   MissionSection,
+  MovementIntelligenceSection,
   OperationalTrustStackSection,
   PilotMetricsSection,
   PilotProgramSection,
@@ -19,7 +21,8 @@ import {
   ResourcesSection,
   SystemHealthSection,
   TechnicalOverviewSection,
-  TrustPrivacySection
+  TrustPrivacySection,
+  WhyNowSection
 } from "@/components/HomeSections";
 
 export default function Home() {
@@ -29,9 +32,12 @@ export default function Home() {
       <main>
         <Hero />
         <PositioningStatement />
+        <WhyNowSection />
         <HelpsSchoolsSection />
+        <MovementIntelligenceSection />
         <HowItWorksSection />
         <PilotProgramSection />
+        <BuyerValueSection />
         <TrustPrivacySection />
         <ReliabilitySection />
         <SystemHealthSection />

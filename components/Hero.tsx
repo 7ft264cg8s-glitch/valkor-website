@@ -11,22 +11,22 @@ export function Hero() {
         <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/85 px-3 py-1.5 text-sm font-semibold text-orange-700 shadow-sm backdrop-blur">
             <CircleDot className="h-4 w-4" aria-hidden="true" />
-            Operational awareness and emergency readiness
+            From scattered hallway activity to structured operational awareness
           </div>
           <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.03em] text-slate-950 sm:text-6xl lg:text-7xl">
-            School operational awareness for movement, accountability, and emergency readiness.
+            A controlled operational layer for school movement.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Valkor helps schools understand zone-level movement, pass activity, receiver health, and
-            incident workflows using confidence-aware local signals — not GPS, biometrics, cameras,
-            or home tracking.
+            Valkor gives approved administrators a school-hours view of zone-level movement, pass
+            activity, overdue trips, incident signals, receiver health, and confidence state from one
+            calm command dashboard.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href="#request-pilot" showArrow>
-              Request Pilot Information
+              Request a Controlled Pilot Review
             </Button>
             <Button href="#product-views" variant="secondary">
-              Schedule a Platform Walkthrough
+              Schedule a 15-Minute Operational Walkthrough
             </Button>
           </div>
           <div className="mt-7 flex flex-wrap gap-2">
@@ -40,8 +40,8 @@ export function Hero() {
             ))}
           </div>
           <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-500">
-            Operational awareness, zone-level visibility, movement accountability, and
-            school-controlled safety workflows.
+            Zone-level operational visibility during school-controlled hours. No GPS, cameras,
+            biometrics, or home tracking.
           </p>
         </div>
 

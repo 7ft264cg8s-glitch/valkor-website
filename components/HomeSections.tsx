@@ -6,6 +6,7 @@ import { MotionDiv } from "@/components/Motion";
 import {
   adminActions,
   accessControlItems,
+  carefulScenarioNotes,
   confidenceStates,
   currentFocus,
   dataPurposes,
@@ -19,9 +20,12 @@ import {
   howItWorksSteps,
   incidentLifecycle,
   missionCards,
+  movementSignals,
   nextSteps,
   operationalData,
   pilotMetrics,
+  pilotOutcomes,
+  pilotProofCards,
   pilotScope,
   productProofCaptions,
   productScreenshots,
@@ -30,10 +34,14 @@ import {
   resolutionReasons,
   resources,
   roadmapCapabilities,
+  roadmapPhases,
   schoolTypes,
+  signalDecisionFlow,
+  stakeholderValue,
   systemHealthItems,
   technicalComponents,
-  trustStack
+  trustStack,
+  whyNowCards
 } from "@/lib/siteData";
 
 type SectionProps = {
@@ -140,6 +148,31 @@ export function PositioningStatement() {
   );
 }
 
+export function WhyNowSection() {
+  return (
+    <SectionShell
+      id="why-now"
+      eyebrow="Why Now"
+      title="Schools need operational context, not more disconnected signals."
+      description="Schools are being asked to manage more movement, more incidents, more documentation, and faster response expectations with tools that were not built for real-time operational awareness."
+      muted
+    >
+      <div className="mt-12 grid gap-4 md:grid-cols-3">
+        {whyNowCards.map((card) => (
+          <div key={card.title} className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/60">
+            <h3 className="text-lg font-semibold text-slate-950">{card.title}</h3>
+            <p className="mt-3 text-sm leading-6 text-slate-600">{card.description}</p>
+          </div>
+        ))}
+      </div>
+      <p className="mx-auto mt-6 max-w-4xl rounded-[2rem] border border-orange-200 bg-orange-50 p-6 text-center text-base font-semibold leading-7 text-slate-950">
+        Valkor gives administrators a structured way to understand movement and act sooner, grounded in
+        daily operations rather than fear-based safety claims.
+      </p>
+    </SectionShell>
+  );
+}
+
 export function HelpsSchoolsSection() {
   return (
     <SectionShell
@@ -161,35 +194,65 @@ export function HelpsSchoolsSection() {
           ))}
         </div>
       </div>
+      <div className="mt-6 grid gap-4 lg:grid-cols-3">
+        {carefulScenarioNotes.map((note) => (
+          <div key={note} className="rounded-[1.5rem] border border-slate-200 bg-white p-5 text-sm leading-6 text-slate-600 shadow-sm">
+            {note}
+          </div>
+        ))}
+      </div>
+    </SectionShell>
+  );
+}
+
+export function MovementIntelligenceSection() {
+  return (
+    <SectionShell
+      id="movement-intelligence"
+      eyebrow="Movement Intelligence"
+      title="Movement Intelligence for School Operations"
+      description="Valkor does not just show dots or alerts. It evaluates pass status, expected routes, zone activity, receiver confidence, signal freshness, repeated patterns, and incident context to help administrators understand what needs attention."
+    >
+      <div className="mt-12 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="rounded-[2rem] border border-slate-200 bg-slate-950 p-6 text-white shadow-xl shadow-slate-300/60">
+          <h3 className="text-2xl font-semibold tracking-tight">From raw signals to administrator-ready context.</h3>
+          <p className="mt-4 text-sm leading-6 text-slate-300">
+            Valkor helps schools turn building movement into clear operational context. Approved
+            administrators can review zone-level movement, pass activity, overdue trips, incident
+            signals, and system health in one controlled dashboard.
+          </p>
+        </div>
+        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Context signals</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {movementSignals.map((signal) => (
+              <Chip key={signal}>{signal}</Chip>
+            ))}
+          </div>
+        </div>
+      </div>
     </SectionShell>
   );
 }
 
 export function HowItWorksSection() {
-  const process = [
-    "Approved Badge",
-    "Local Receiver",
-    "Confidence Engine",
-    "Admin Dashboard"
-  ];
-
   return (
     <SectionShell
       id="how-it-works"
-      eyebrow="How It Works"
-      title="Approved signals become operational context."
-      description="Approved badges emit local building signals. Fixed receivers detect signals in school-defined zones. Valkor evaluates confidence, freshness, receiver health, and movement context before administrators review operational state."
+      eyebrow="From Signal to Decision"
+      title="From Signal to Decision"
+      description="A technical-but-readable flow from approved local signal to human-reviewed operational action, without implying GPS-level precision."
       muted
     >
       <div className="mt-12 overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-xl shadow-slate-200/70">
-        <div className="grid gap-3 md:grid-cols-4">
-          {process.map((item, index) => (
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+          {signalDecisionFlow.map((item, index) => (
             <div key={item} className="relative rounded-3xl bg-slate-50 p-5">
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-bold text-valkor-orange shadow-sm">
                 {index + 1}
               </span>
               <p className="mt-5 text-sm font-semibold leading-5 text-slate-950">{item}</p>
-              {index < process.length - 1 ? (
+              {index < signalDecisionFlow.length - 1 ? (
                 <ArrowRight className="absolute right-4 top-6 hidden h-4 w-4 text-slate-300 lg:block" />
               ) : null}
             </div>
@@ -262,22 +325,43 @@ export function PilotProgramSection() {
       </div>
       <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_1.2fr]">
         <div className="rounded-[1.5rem] border border-orange-200 bg-orange-50 p-6">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-700">Procurement posture</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-700">What the pilot proves</p>
           <p className="mt-3 text-lg font-semibold leading-8 text-slate-950">
-            A pilot should prove daily value without becoming an emergency dependency.
+            A Valkor pilot is designed to prove whether the school can reduce hallway uncertainty,
+            improve pass accountability, identify repeated problem zones, validate receiver coverage,
+            and give administrators a calmer workflow for reviewing movement-related incidents.
           </p>
         </div>
         <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
           <p className="text-base leading-7 text-slate-600">
-            Valkor gives schools supplemental, zone-level operational visibility during school-controlled
-            hours. It helps administrators understand pass movement, overdue students, route deviations,
-            receiver health, and incident follow-up with confidence indicators.
+            The first pilot is not about full-school automation. It is about proving controlled
+            operational value in a small number of zones, with real staff, real movement, real incidents,
+            and measurable results.
           </p>
         </div>
       </div>
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
+        {pilotProofCards.map((card) => (
+          <div key={card.title} className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-950">{card.title}</h3>
+            <p className="mt-3 text-sm leading-6 text-slate-600">{card.description}</p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-6 rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">By the end of a pilot, the school should understand</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {pilotOutcomes.map((outcome) => (
+            <Chip key={outcome}>{outcome}</Chip>
+          ))}
+        </div>
+        <p className="mt-5 text-sm font-semibold leading-6 text-slate-700">
+          Valkor earns expansion by proving usefulness, reliability, and trust in a limited deployment first.
+        </p>
+      </div>
       <div className="mt-6 flex justify-center">
         <Button href="#request-pilot" showArrow>
-          Request Pilot Information
+          Request a Controlled Pilot Review
         </Button>
       </div>
     </SectionShell>
@@ -293,7 +377,7 @@ export function TrustPrivacySection() {
       description="Valkor is built around transparent operational intelligence: collect only what is operationally justified, explain it clearly, and place strong controls around it."
       muted
     >
-      <div className="mt-12 grid gap-6 lg:grid-cols-2">
+      <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/60">
           <h3 className="text-xl font-semibold text-slate-950">Data Valkor may process</h3>
           <div className="mt-5 flex flex-wrap gap-2">
@@ -340,13 +424,30 @@ export function TrustPrivacySection() {
   );
 }
 
+export function BuyerValueSection() {
+  return (
+    <SectionShell
+      id="buyer-value"
+      eyebrow="Stakeholder Value"
+      title="Built for the people who actually run school operations."
+      description="Different reviewers need different proof. Valkor keeps the same controlled data model while making daily value clear to operations, safety, IT, and community stakeholders."
+    >
+      <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        {stakeholderValue.map((item) => (
+          <IconCard key={item.title} item={item} />
+        ))}
+      </div>
+    </SectionShell>
+  );
+}
+
 export function ReliabilitySection() {
   return (
     <SectionShell
       id="confidence-aware-visibility"
       eyebrow="Confidence-Aware Visibility"
       title="Signal data should not pretend to be perfect."
-      description="Valkor evaluates signal strength, signal stability, receiver overlap, freshness, receiver health, and movement context before showing operational state."
+      description="Valkor's confidence engine evaluates signal strength, receiver health, freshness, pass context, route expectations, and movement patterns before surfacing recommended next steps."
     >
       <div className="mt-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/70">
@@ -359,7 +460,8 @@ export function ReliabilitySection() {
             ))}
           </div>
           <p className="mt-5 text-sm leading-6 text-slate-600">
-            When confidence is low, Valkor says it is low. When data is stale, Valkor shows that clearly.
+            Confidence is not certainty. When confidence is low, Valkor says it is low. When data is
+            stale, Valkor shows that clearly. Administrators stay in control.
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
@@ -422,7 +524,7 @@ export function DoesNotDoSection() {
       id="does-not-do"
       eyebrow="Boundaries"
       title="What Valkor Does Not Do"
-      description="Valkor supports school-controlled operational awareness. It is not designed for unrestricted surveillance."
+      description="Valkor is intentionally bounded so schools can evaluate it responsibly. These limits are part of the product strategy."
       muted
     >
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -452,6 +554,7 @@ export function DoesNotDoSection() {
       <div className="mt-6 rounded-2xl border border-orange-200 bg-orange-50 p-5 text-base font-semibold leading-7 text-slate-950">
           Valkor provides supplemental, school-controlled operational visibility. It does not replace
           human judgment, school policy, emergency protocols, or administrator discretion.
+          Schools need visibility they can trust, explain, govern, and expand carefully.
       </div>
     </SectionShell>
   );
@@ -462,8 +565,8 @@ export function IncidentWorkflowSection() {
     <SectionShell
       id="incident-workflow"
       eyebrow="Incident Workflow"
-      title="A lifecycle, not just an alert."
-      description="Administrators can review, assign, respond, resolve, dismiss, and document operational issues inside a human-controlled workflow."
+      title="Human-reviewed workflow from uncertainty to action."
+      description="Valkor can surface context, confidence, and recommended next steps, but approved school staff decide what action to take."
     >
       <div className="mt-12 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/70">
         <div className="flex flex-wrap items-center gap-3">
@@ -494,6 +597,9 @@ export function IncidentWorkflowSection() {
             </div>
           </div>
         </div>
+        <p className="mt-6 rounded-2xl border border-orange-200 bg-orange-50 p-5 text-sm font-semibold leading-6 text-slate-950">
+          Every incident can be acknowledged, assigned, resolved, dismissed, and reviewed.
+        </p>
       </div>
     </SectionShell>
   );
@@ -685,9 +791,21 @@ export function FutureRoadmapSection() {
     <SectionShell
       id="future-roadmap"
       eyebrow="Roadmap"
-      title="Current Platform Focus"
-      description="Valkor separates the current pilot-ready platform from the long-term emergency coordination vision."
+      title="Platform Roadmap"
+      description="Valkor starts with daily operational awareness and expands only as the underlying trust, reliability, and workflow foundation is proven."
     >
+      <div className="mt-12 overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-xl shadow-slate-200/70">
+        <div className="grid gap-3 md:grid-cols-5">
+          {roadmapPhases.map((phase, index) => (
+            <div key={phase} className="rounded-3xl bg-slate-50 p-5">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-bold text-valkor-orange shadow-sm">
+                {index + 1}
+              </span>
+              <p className="mt-5 text-sm font-semibold leading-5 text-slate-950">{phase}</p>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
           <h3 className="text-xl font-semibold text-slate-950">Current focus</h3>
@@ -734,7 +852,7 @@ export function MissionSection() {
       id="mission"
       eyebrow="Mission"
       title="Built for operational confusion schools already face."
-      description="Valkor was built around a simple operational problem: during normal school days and critical incidents, administrators often lack clear, real-time visibility into movement, accountability, and follow-up."
+      description="Valkor was founded around a simple belief: schools should not have to rely on guesswork, scattered radio calls, or incomplete hallway reports to understand what is happening inside the building."
       muted
     >
       <div className="mt-12 grid gap-4 md:grid-cols-3">
@@ -743,8 +861,10 @@ export function MissionSection() {
         ))}
       </div>
       <p className="mx-auto mt-6 max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-6 text-center text-base leading-7 text-slate-600 shadow-sm">
-        Valkor is designed to give schools a calmer, more structured way to understand what is
-        happening, where uncertainty exists, and what actions need attention.
+        The company is building a controlled operational awareness layer that starts with movement
+        accountability, pass visibility, receiver health, and human-reviewed incident workflows. The
+        long-term goal is trusted school infrastructure for emergency readiness, response coordination,
+        and safer daily operations.
       </p>
     </SectionShell>
   );
@@ -786,18 +906,18 @@ export function PilotRequestSection() {
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.22em] text-orange-300">Pilot Review</p>
           <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-            Start with a controlled operational awareness pilot.
+            Explore a limited school pilot.
           </h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            Limited scope. School-approved access. Human-controlled workflow. No GPS, cameras,
-            biometrics, autonomous discipline, or emergency dependency in the first pilot.
+            See how Valkor could support hallway accountability, pass visibility, receiver health, and
+            incident coordination in a limited school-approved pilot.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href="mailto:jackson@valkorsystems.com?subject=Valkor%20Pilot%20Information%20Request" showArrow>
-              Request Pilot Information
+              Request a Controlled Pilot Review
             </Button>
             <Button href="#trust-privacy" variant="secondary">
-              Review the Operational Overview
+              Review Valkor for Your School
             </Button>
           </div>
           <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-5">
@@ -877,7 +997,7 @@ export function PilotRequestSection() {
             type="submit"
             className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-valkor-orange px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-orange-200/70 transition hover:bg-valkor-orangeDark focus:outline-none focus:ring-2 focus:ring-valkor-orange focus:ring-offset-2"
           >
-            Request Pilot Information
+            Request a Controlled Pilot Review
           </button>
         </form>
       </div>
