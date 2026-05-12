@@ -45,10 +45,10 @@ export const navigation = [
 
 export const heroTrustPills = [
   "No GPS",
-  "No cameras",
-  "No biometrics",
+  "No Cameras",
+  "No Biometrics",
   "Human-controlled",
-  "Limited pilots"
+  "Limited Pilots"
 ];
 
 export const helpsSchoolsDo: IconCard[] = [
@@ -92,33 +92,27 @@ export const helpsSchoolsDo: IconCard[] = [
 
 export const howItWorksSteps: IconCard[] = [
   {
-    title: "Approved badges broadcast local signals",
+    title: "Approved badges emit local building signals",
     description:
-      "Students or staff in a pilot may carry approved BLE-enabled badges or tags. Early pilots can use device IDs instead of exposing full student identity by default.",
+      "Students or staff in a pilot may carry approved BLE-enabled badges or tags within school-approved areas.",
     icon: IdCard
   },
   {
-    title: "School receivers listen in specific zones",
+    title: "Fixed receivers detect school-defined zones",
     description:
       "Receivers are placed in selected school-approved areas such as hallways, bathroom entrances, cafeteria entrances, office areas, or restricted zones.",
     icon: Radio
   },
   {
-    title: "Valkor validates the signal",
+    title: "Valkor evaluates confidence and context",
     description:
-      "The backend checks that the device and receiver are approved. Unknown devices should not be treated as students.",
-    icon: ShieldCheck
+      "The system evaluates freshness, receiver health, signal stability, receiver overlap, and movement context before showing operational state.",
+    icon: Gauge
   },
   {
-    title: "The engine estimates zone-level presence",
+    title: "Administrators see state and incidents",
     description:
-      "Valkor uses signal strength, recent signal history, receiver health, freshness, stability, and confidence logic to estimate likely zone presence.",
-    icon: Activity
-  },
-  {
-    title: "Administrators see operational state",
-    description:
-      "The dashboard shows current zone, candidate zone, confidence, last seen time, stale data, receiver health, pass status, and incidents.",
+      "The dashboard shows zone-level state, incidents, confidence, stale data, receiver health, and recommended next steps.",
     icon: MonitorCheck
   }
 ];
@@ -155,6 +149,18 @@ export const pilotMetrics = [
   "End-of-pilot recommendations"
 ];
 
+export const dailyVisibilityUseCases = [
+  "Students out longer than expected",
+  "Movement outside approved pass routes",
+  "Hallway or bathroom accountability",
+  "Repeated gathering zones",
+  "Restricted-zone visibility",
+  "Receiver/device health",
+  "Stale or missing signal awareness",
+  "Incident acknowledgement and resolution",
+  "Operational reporting after a pilot or drill"
+];
+
 export const operationalData = [
   "Approved badge/device identifiers",
   "Receiver identifiers",
@@ -185,6 +191,16 @@ export const dataPurposes = [
   "Future emergency-routing and congestion intelligence where approved"
 ];
 
+export const accessControlItems = [
+  "Approved school personnel only",
+  "Administrator and assistant principal access",
+  "IT/security reviewer access where approved",
+  "Designated responder access by role",
+  "School-defined deployment boundaries",
+  "Configurable retention expectations",
+  "Audit logs for accountability"
+];
+
 export const doesNotDo = [
   "No GPS tracking",
   "No home tracking",
@@ -193,10 +209,99 @@ export const doesNotDo = [
   "No biometric identification",
   "No facial recognition",
   "No student-facing app requirement",
+  "No public student visibility",
   "No autonomous discipline",
+  "No automatic staff dispatch",
+  "No consumer-style behavioral profiling",
   "No automatic safety guarantees",
   "No replacement for administrators, teachers, SROs, emergency responders, school policy, or school judgment",
   "No full-school emergency automation in the first pilot"
+];
+
+export const designedFor = [
+  "School-hours operational use",
+  "School-approved deployment areas",
+  "Administrator-controlled access",
+  "Zone-level visibility",
+  "Confidence-aware alerts",
+  "Incident coordination",
+  "Operational reporting",
+  "Emergency readiness infrastructure"
+];
+
+export const confidenceStates = ["Confirmed", "Likely", "Weak", "Uncertain", "Stale", "Unknown"];
+
+export const systemHealthItems = [
+  "Receiver online/stale/offline status",
+  "Last seen timestamps",
+  "Signal freshness",
+  "Receiver conflict indicators",
+  "Badge/device health",
+  "Unknown or unapproved device handling",
+  "Data confidence display"
+];
+
+export const currentFocus = [
+  "Zone-level school movement awareness",
+  "Hallway/pass accountability",
+  "Overdue movement visibility",
+  "Route deviation detection",
+  "Receiver health",
+  "Confidence-aware operational state",
+  "Incident coordination",
+  "Pilot reporting"
+];
+
+export const futureDevelopment = [
+  "Emergency command mode",
+  "Live accountability during drills or emergencies",
+  "Hazard-aware routing",
+  "Congestion-aware movement intelligence",
+  "Evacuation optimization",
+  "Staff coordination workflows",
+  "After-action reporting"
+];
+
+export const trustStack = [
+  "No GPS",
+  "No biometrics",
+  "No cameras",
+  "No microphones",
+  "No home tracking",
+  "Zone-level visibility",
+  "School-controlled access",
+  "Confidence-aware alerts",
+  "Receiver health monitoring",
+  "Pilot-ready deployment",
+  "Human-controlled workflows"
+];
+
+export const productProofCaptions = [
+  "Dashboard overview",
+  "People/zone state",
+  "Confidence indicator",
+  "Receiver health",
+  "Stale data warning",
+  "Incident workflow",
+  "Pilot report metrics"
+];
+
+export const missionCards: IconCard[] = [
+  {
+    title: "Movement accountability",
+    description: "Reduce confusion around pass activity, overdue movement, and route deviation visibility.",
+    icon: Activity
+  },
+  {
+    title: "Emergency readiness",
+    description: "Build trusted operational visibility before higher-stakes emergency coordination layers.",
+    icon: ShieldCheck
+  },
+  {
+    title: "Operational intelligence",
+    description: "Help schools understand receiver health, confidence levels, incident follow-up, and pilot results.",
+    icon: BarChart3
+  }
 ];
 
 export const reliabilityStates = [
@@ -388,6 +493,7 @@ export const formInterests = [
   "Bathroom monitoring",
   "Receiver reliability",
   "Incident workflow",
+  "Operational overview",
   "Emergency planning",
   "Privacy/security review",
   "Other"
@@ -397,7 +503,7 @@ export const schoolTypes = ["Middle school", "High school", "District", "Private
 
 export const nextSteps = [
   "15-minute intro",
-  "Demo",
+  "Platform walkthrough",
   "Pilot discussion",
   "IT/privacy review",
   "Send materials"
@@ -416,7 +522,7 @@ export const heroPreviewRows = [
   { label: "Receiver health", value: "4 online / 1 stale", tone: "green" },
   { label: "Confidence", value: "Likely - 86%", tone: "blue" },
   { label: "Staff response", value: "Assigned", tone: "green" },
-  { label: "Mode", value: "Pilot mode", tone: "orange" }
+  { label: "Readiness", value: "Emergency-ready foundation", tone: "orange" }
 ];
 
 export const publicTechExclusions = [

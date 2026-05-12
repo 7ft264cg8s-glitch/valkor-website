@@ -9,13 +9,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Valkor Systems | Real-Time Operational Awareness for Schools",
+  title: "Valkor Systems | School Operational Awareness and Emergency Readiness",
   description:
-    "Valkor Systems provides school-controlled, zone-level operational awareness for hallway accountability, pass visibility, receiver health, and incident follow-up.",
+    "Valkor Systems provides school-controlled, zone-level operational awareness for movement accountability, pass visibility, receiver health, incident coordination, and emergency readiness.",
   metadataBase: new URL("https://valkorsystems.com"),
   openGraph: {
     title: "Valkor Systems",
-    description: "Zone-level visibility for safer, calmer school operations.",
+    description: "School operational awareness for movement, accountability, and emergency readiness.",
     url: "https://valkorsystems.com",
     siteName: "Valkor Systems",
     type: "website"

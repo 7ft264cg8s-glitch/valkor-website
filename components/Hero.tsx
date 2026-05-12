@@ -11,22 +11,22 @@ export function Hero() {
         <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/85 px-3 py-1.5 text-sm font-semibold text-orange-700 shadow-sm backdrop-blur">
             <CircleDot className="h-4 w-4" aria-hidden="true" />
-            Pilot-ready school operations infrastructure
+            Operational awareness and emergency readiness
           </div>
           <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.03em] text-slate-950 sm:text-6xl lg:text-7xl">
-            Zone-level operational awareness for safer, calmer school operations.
+            School operational awareness for movement, accountability, and emergency readiness.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Valkor helps school administrators understand student movement, hall pass activity,
-            overdue trips, route deviations, receiver health, and incident follow-up — using
-            school-controlled, zone-level awareness instead of GPS or camera-based tracking.
+            Valkor helps schools understand zone-level movement, pass activity, receiver health, and
+            incident workflows using confidence-aware local signals — not GPS, biometrics, cameras,
+            or home tracking.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href="#request-pilot" showArrow>
-              Request Pilot Review
+              Request Pilot Information
             </Button>
-            <Button href="#trust-privacy" variant="secondary">
-              View Privacy & Trust Overview
+            <Button href="#product-views" variant="secondary">
+              Schedule a Platform Walkthrough
             </Button>
           </div>
           <div className="mt-7 flex flex-wrap gap-2">
@@ -40,15 +40,15 @@ export function Hero() {
             ))}
           </div>
           <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-500">
-            Controlled pilots. School-approved access. No GPS, cameras, microphones, biometrics, or
-            autonomous discipline.
+            Operational awareness, zone-level visibility, movement accountability, and
+            school-controlled safety workflows.
           </p>
         </div>
 
         <div className="relative">
           <div className="absolute -left-5 top-14 z-10 hidden w-56 rounded-3xl border border-slate-200 bg-white/92 p-4 shadow-2xl shadow-slate-300/60 backdrop-blur-xl xl:block">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">Pilot Mode</p>
-            <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Live demo</p>
+            <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Pilot-ready</p>
             <p className="mt-2 text-sm leading-5 text-slate-500">Admin-only operational view</p>
           </div>
           <div className="absolute -bottom-8 right-4 z-10 hidden w-72 rounded-3xl border border-orange-200 bg-white/94 p-4 shadow-2xl shadow-orange-200/50 backdrop-blur-xl md:block">

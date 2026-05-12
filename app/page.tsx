@@ -8,6 +8,8 @@ import {
   HelpsSchoolsSection,
   HowItWorksSection,
   IncidentWorkflowSection,
+  MissionSection,
+  OperationalTrustStackSection,
   PilotMetricsSection,
   PilotProgramSection,
   PilotRequestSection,
@@ -15,6 +17,7 @@ import {
   ProductViewsSection,
   ReliabilitySection,
   ResourcesSection,
+  SystemHealthSection,
   TechnicalOverviewSection,
   TrustPrivacySection
 } from "@/components/HomeSections";
@@ -31,14 +34,17 @@ export default function Home() {
         <PilotProgramSection />
         <TrustPrivacySection />
         <ReliabilitySection />
+        <SystemHealthSection />
         <DoesNotDoSection />
         <IncidentWorkflowSection />
         <TechnicalOverviewSection />
         <PilotMetricsSection />
         <ProductViewsSection />
+        <MissionSection />
         <FAQPreviewSection />
         <ResourcesSection />
         <FutureRoadmapSection />
+        <OperationalTrustStackSection />
         <PilotRequestSection />
       </main>
       <Footer />
