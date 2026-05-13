@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   ClipboardCheck,
   Clock,
+  Cpu,
   Database,
   FileCheck2,
   FileText,
@@ -22,6 +23,7 @@ import {
   School,
   ShieldCheck,
   SlidersHorizontal,
+  Trash2,
   UserCheck,
   Users,
   WifiOff
@@ -49,6 +51,69 @@ export const heroTrustPills = [
   "No Biometrics",
   "Human-controlled",
   "Limited Pilots"
+];
+
+export const liveSnapshotMetrics = [
+  { label: "Receiver Health", value: "4 online / 1 stale", tone: "green" },
+  { label: "Overdue Passes", value: "2 need review", tone: "orange" },
+  { label: "Zone Confidence", value: "Likely · 86%", tone: "blue" },
+  { label: "Incident State", value: "Assigned", tone: "slate" },
+  { label: "Mode", value: "Pilot Demo", tone: "orange" }
+];
+
+export const signalFlowSteps: IconCard[] = [
+  {
+    title: "Approved badge emits local signal",
+    description: "Approved badges broadcast local building signals inside a school-controlled pilot area.",
+    icon: IdCard
+  },
+  {
+    title: "Receiver detects school-defined zone",
+    description: "Fixed receivers listen in approved zones and report what they hear without GPS-level precision.",
+    icon: Radio
+  },
+  {
+    title: "Confidence engine checks signal state",
+    description: "Freshness, signal quality, receiver overlap, and receiver health are reviewed before context is shown.",
+    icon: Gauge
+  },
+  {
+    title: "Movement engine compares pass context",
+    description: "Pass status, expected route, overdue movement, and zone activity are evaluated as operational context.",
+    icon: Cpu
+  },
+  {
+    title: "Dashboard surfaces reviewable context",
+    description: "Approved administrators see confidence-aware context and decide what follow-up is appropriate.",
+    icon: MonitorCheck
+  }
+];
+
+export const signalFlowStatusLabels = [
+  "Signal Received",
+  "Zone Detected",
+  "Confidence Checked",
+  "Movement Reviewed",
+  "Admin Review Ready"
+];
+
+export const valkorDoes = [
+  "Zone-level operational awareness",
+  "Hall pass visibility",
+  "Overdue movement review",
+  "Receiver health monitoring",
+  "Human-controlled incident workflow"
+];
+
+export const valkorDoesNot = [
+  "GPS tracking",
+  "Cameras",
+  "Biometrics",
+  "Home tracking",
+  "Student phone monitoring",
+  "Advertising profiles",
+  "Automatic discipline",
+  "Autonomous emergency decisions"
 ];
 
 export const helpsSchoolsDo: IconCard[] = [
@@ -179,6 +244,37 @@ export const pilotScope = [
   { label: "Autonomous discipline", value: "No" }
 ];
 
+export const pilotBoundaryItems = [
+  "Limited and measurable",
+  "Reversible pilot scope",
+  "School-hours-only operation",
+  "Approved zones only",
+  "Approved users only",
+  "Pseudonymous IDs where appropriate",
+  "No GPS",
+  "No biometrics",
+  "No cameras",
+  "No microphones",
+  "No autonomous discipline",
+  "Documented success metrics",
+  "Documented failure conditions",
+  "End-of-pilot review"
+];
+
+export const pilotMeasurementExamples = [
+  "Receiver uptime",
+  "Packet reliability",
+  "Stale-data rate",
+  "Confidence levels",
+  "False alerts",
+  "Missed detections",
+  "Overdue pass visibility",
+  "Route deviation review",
+  "Staff usefulness",
+  "Privacy feedback",
+  "Technical reliability"
+];
+
 export const pilotMetrics = [
   "Receiver uptime",
   "Packet reliability",
@@ -296,6 +392,51 @@ export const operationalData = [
   "Pilot performance metrics"
 ];
 
+export const trustPrivacyCards: IconCard[] = [
+  {
+    title: "School-Controlled Operational Awareness",
+    description:
+      "Valkor provides operational intelligence under school-approved boundaries. Schools and districts remain responsible for deployment scope, policy, review, and action.",
+    icon: School
+  },
+  {
+    title: "Zone-Level Awareness, Not Exact Location Tracking",
+    description:
+      "Valkor supports school-defined zones and confidence states. It is not GPS, foot-by-foot positioning, or home tracking.",
+    icon: MapPinned
+  },
+  {
+    title: "Access Based on Legitimate Operational Need",
+    description:
+      "Access should be limited by role, zone, user permission, pilot scope, and legitimate school operational purpose.",
+    icon: LockKeyhole
+  },
+  {
+    title: "Human Review Before Action",
+    description:
+      "Valkor may surface alerts, stale-data warnings, pass exceptions, and confidence indicators. School personnel verify facts and decide next steps.",
+    icon: UserCheck
+  },
+  {
+    title: "Data Retention and Deletion",
+    description:
+      "Retention, export, and deletion expectations should be defined with the school or district before deployment and reviewed during the pilot.",
+    icon: Trash2
+  },
+  {
+    title: "Data Sharing",
+    description:
+      "Operational data should be shared only for approved school purposes, authorized review, pilot evaluation, and documented support needs.",
+    icon: ShieldCheck
+  },
+  {
+    title: "Compliance Review",
+    description:
+      "Deployment should be reviewed by the school, district, IT/privacy staff, or counsel. Website language is informational and not legal advice.",
+    icon: FileCheck2
+  }
+];
+
 export const dataPurposes = [
   "Zone-level visibility",
   "Hallway accountability",
@@ -310,27 +451,80 @@ export const dataPurposes = [
 ];
 
 export const accessControlItems = [
-  "Approved school personnel only",
-  "Administrator and assistant principal access",
-  "IT/security reviewer access where approved",
-  "Designated responder access by role",
-  "School-defined deployment boundaries",
-  "Configurable retention expectations",
-  "Audit logs for accountability"
+  "Not every user sees every student",
+  "Not every user sees every movement record",
+  "Not every user sees technical diagnostics",
+  "Role-based access by legitimate operational need",
+  "School-defined live status permissions",
+  "School-defined incident and history permissions",
+  "Receiver health and audit access where approved"
+];
+
+export const schoolControlItems = [
+  "Which buildings are included",
+  "Which zones are included or excluded",
+  "Which badges are approved",
+  "Which people are included",
+  "Whether names or pseudonymous IDs are used",
+  "Who can access the dashboard",
+  "Who can view historical data",
+  "Who receives alerts",
+  "What data is retained",
+  "What data is exported or deleted",
+  "How parents and stakeholders are informed"
+];
+
+export const humanReviewItems = [
+  "Valkor is decision support, not an autonomous decision-maker",
+  "School personnel verify facts before action",
+  "Weak, missing, stale, or uncertain signals should not be treated as misconduct by themselves",
+  "Valkor should not be used as the sole basis for student discipline",
+  "Human school personnel remain responsible for review, verification, and action"
+];
+
+export const doesNotDoGroups = [
+  {
+    title: "No consumer tracking",
+    items: [
+      "No GPS tracking",
+      "No home tracking",
+      "No student phone monitoring",
+      "No student message reading",
+      "No web browsing monitoring"
+    ]
+  },
+  {
+    title: "No biometric or media surveillance",
+    items: [
+      "No cameras",
+      "No microphones",
+      "No facial recognition",
+      "No fingerprints",
+      "No biometric identification"
+    ]
+  },
+  {
+    title: "No commercial profiling",
+    items: [
+      "Does not sell student data",
+      "Does not use student data for advertising",
+      "Does not create consumer marketing profiles",
+      "No public student visibility"
+    ]
+  },
+  {
+    title: "No automatic punishment",
+    items: [
+      "No autonomous discipline",
+      "No automatic staff dispatch",
+      "Does not decide guilt, intent, misconduct, or punishment",
+      "Weak, missing, stale, or uncertain signals are not misconduct by themselves"
+    ]
+  }
 ];
 
 export const doesNotDo = [
-  "No GPS tracking",
-  "No home tracking",
-  "No camera surveillance",
-  "No microphone monitoring",
-  "No biometric identification",
-  "No facial recognition",
-  "No student-facing app requirement",
-  "No public student visibility",
-  "No autonomous discipline",
-  "No automatic staff dispatch",
-  "No consumer-style behavioral profiling",
+  ...doesNotDoGroups.flatMap((group) => group.items),
   "No automatic safety guarantees",
   "No replacement for administrators, teachers, SROs, emergency responders, school policy, or school judgment",
   "No full-school emergency automation in the first pilot"
@@ -371,11 +565,10 @@ export const currentFocus = [
 ];
 
 export const futureDevelopment = [
-  "Emergency command mode",
-  "Live accountability during drills or emergencies",
-  "Hazard-aware routing",
-  "Congestion-aware movement intelligence",
-  "Evacuation optimization",
+  "Emergency coordination",
+  "Drill analysis",
+  "Congestion awareness",
+  "Safety-routing decision support",
   "Staff coordination workflows",
   "After-action reporting"
 ];
@@ -512,13 +705,13 @@ export const technicalComponents: IconCard[] = [
 
 export const faqItems = [
   {
-    question: "Is Valkor student tracking?",
+    question: "Is Valkor student surveillance?",
     answer:
-      "Valkor is best described as school operational awareness, not consumer-style tracking. It provides zone-level visibility during school-controlled use so administrators can understand movement, pass status, stale data, and incidents."
+      "Valkor is a school-controlled operational awareness system, not consumer surveillance software. It is intended for approved school use, defined zones, and human-reviewed operations."
   },
   {
-    question: "Does Valkor use GPS?",
-    answer: "No. Valkor's pilot positioning is zone-level and school-controlled, not GPS-based."
+    question: "Does Valkor track exact location?",
+    answer: "No. Valkor supports zone-level awareness in school-defined areas. It is not GPS, foot-by-foot tracking, or home tracking."
   },
   {
     question: "Does Valkor follow students home?",
@@ -526,12 +719,17 @@ export const faqItems = [
   },
   {
     question: "Does Valkor use cameras, microphones, or biometrics?",
-    answer: "No. Valkor does not use cameras, microphones, facial recognition, or biometric identification."
+    answer: "No. Valkor does not use cameras, microphones, facial recognition, fingerprints, or biometric identification."
+  },
+  {
+    question: "Can weak or stale data be used to discipline a student?",
+    answer:
+      "Weak, missing, stale, or uncertain signal data should not be treated as misconduct by itself. Valkor should not be used as the sole basis for discipline."
   },
   {
     question: "Does Valkor automatically discipline students?",
     answer:
-      "No. Valkor can surface operational information and recommended actions, but humans remain in control."
+      "No. Valkor can surface operational context, confidence indicators, and workflow information, but school personnel verify facts and decide action."
   },
   {
     question: "What does zone-level mean?",
@@ -549,32 +747,46 @@ export const faqItems = [
       "The dashboard should show receiver health and avoid pretending the area has reliable live data."
   },
   {
-    question: "Who can access Valkor?",
-    answer: "Access should be limited to approved school users based on role and pilot configuration."
+    question: "Who controls deployment?",
+    answer:
+      "The school or district defines buildings, zones, approved badges, included people, access roles, retention expectations, alerts, exports, and stakeholder communication."
+  },
+  {
+    question: "Who can access Valkor data?",
+    answer:
+      "Access should be limited to approved school users by role and legitimate operational need. Not every user should see every student, record, diagnostic, or historical view."
+  },
+  {
+    question: "Does Valkor sell student data?",
+    answer:
+      "No. Valkor should not sell student data, use it for advertising, or create consumer marketing profiles."
+  },
+  {
+    question: "How long is data retained?",
+    answer:
+      "Retention should be defined before deployment with the school or district. Pilot retention, export, and deletion expectations should be documented and reviewable."
   },
   {
     question: "What data does Valkor collect?",
     answer:
-      "Depending on deployment, Valkor may process approved badge IDs, receiver IDs, zone IDs, timestamps, signal readings, confidence states, pass events, incident events, receiver health, admin actions, and audit logs."
+      "Depending on deployment, Valkor may process operationally justified data such as approved badge IDs, receiver IDs, zone IDs, timestamps, signal readings, confidence states, pass events, incidents, receiver health, admin actions, and audit logs."
   },
   {
-    question: "Is emergency routing part of the first pilot?",
+    question: "Are emergency routing features active in the first pilot?",
     answer:
-      "No. Emergency coordination is a long-term product layer. The first pilot should focus on live zone awareness, school operations, reliability, and trust."
+      "No. Future emergency coordination or routing features would require separate approval, configuration, testing, documentation, and deployment agreement coverage."
   }
 ];
 
 export const resources = [
-  "Valkor One-Page Overview",
-  "Pilot Program Overview",
-  "Privacy & Operational Data Overview",
-  "What Valkor Does Not Do",
-  "Parent-Facing Explanation",
-  "IT & Security Review Brief",
-  "Pilot Success Metrics Template",
-  "Failure & Downtime Handling Overview",
-  "Alert Escalation Logic",
-  "Demo Walkthrough"
+  { title: "Privacy & Operational Data Brief", status: "Available on request" },
+  { title: "What Valkor Does Not Do", status: "Available on request" },
+  { title: "School Control & Access Overview", status: "Available on request" },
+  { title: "Pilot Boundaries Overview", status: "Available on request" },
+  { title: "Parent-Facing Explanation", status: "Coming soon" },
+  { title: "IT & Security Review Brief", status: "Coming soon" },
+  { title: "Data Retention & Deletion Overview", status: "Coming soon" },
+  { title: "Future Emergency Features Addendum", status: "Coming soon" }
 ];
 
 export const productScreenshots = [
@@ -673,30 +885,33 @@ export const publicTechExclusions = [
   "Security implementation details",
   "Receiver network details",
   "Exact deployment maps",
+  "Exact floor-plan logic",
   "School floor plans",
   "Raw telemetry examples tied to real people",
+  "Proprietary routing logic",
+  "Internal engine architecture beyond a high-level explanation",
   "Detailed vulnerability information"
 ];
 
 export const roadmapCapabilities: IconCard[] = [
   {
     title: "Blocked route awareness",
-    description: "Future routing work could help evaluate corridors or exits that are unavailable.",
+    description: "Future work may help trained school leaders evaluate unavailable corridors or exits where separately approved.",
     icon: Route
   },
   {
     title: "Crowding and congestion context",
-    description: "Future models could account for crowding, hazards, and changing building conditions.",
+    description: "Future capabilities may account for crowding, drills, hazards, and changing building conditions.",
     icon: Users
   },
   {
     title: "Decision support only",
-    description: "Future routing intelligence would assist trained leaders, not replace emergency procedures.",
+    description: "Future routing intelligence would assist trained leaders, not issue automatic commands or guarantee outcomes.",
     icon: UserCheck
   },
   {
-    title: "School approval required",
-    description: "Any future emergency layer should be deployed only within approved school policy.",
+    title: "Separate approval required",
+    description: "Emergency features are not active unless configured, tested, documented, and covered by deployment agreements.",
     icon: School
   }
 ];

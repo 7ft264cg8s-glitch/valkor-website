@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, FileText, HelpCircle, Mail, ShieldCheck } from "lucide-react";
+import { Activity, ArrowRight, CheckCircle2, FileText, HelpCircle, Mail, ShieldCheck } from "lucide-react";
 import type { ReactNode } from "react";
+import { BoundariesToggle } from "@/components/BoundariesToggle";
 import { Button } from "@/components/ui/Button";
 import { MotionDiv } from "@/components/Motion";
 import {
@@ -11,18 +12,21 @@ import {
   currentFocus,
   dataPurposes,
   dailyVisibilityUseCases,
-  designedFor,
-  doesNotDo,
+  doesNotDoGroups,
   faqItems,
   formInterests,
   futureDevelopment,
   helpsSchoolsDo,
   howItWorksSteps,
+  humanReviewItems,
   incidentLifecycle,
+  liveSnapshotMetrics,
   missionCards,
   movementSignals,
   nextSteps,
   operationalData,
+  pilotBoundaryItems,
+  pilotMeasurementExamples,
   pilotMetrics,
   pilotOutcomes,
   pilotProofCards,
@@ -36,10 +40,14 @@ import {
   roadmapCapabilities,
   roadmapPhases,
   schoolTypes,
+  schoolControlItems,
+  signalFlowStatusLabels,
+  signalFlowSteps,
   signalDecisionFlow,
   stakeholderValue,
   systemHealthItems,
   technicalComponents,
+  trustPrivacyCards,
   trustStack,
   whyNowCards
 } from "@/lib/siteData";
@@ -148,6 +156,68 @@ export function PositioningStatement() {
   );
 }
 
+export function LiveOperationalSnapshotSection() {
+  return (
+    <section className="border-y border-slate-200 bg-white px-5 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div>
+          <p className="text-sm font-bold uppercase tracking-[0.22em] text-valkor-orange">Pilot Demo Snapshot</p>
+          <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-4xl">
+            Live Operational Snapshot
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+            Example pilot-state view showing receiver health, overdue movement, confidence state,
+            and response status. Demo values are illustrative, not customer data.
+          </p>
+        </div>
+
+        <MotionDiv
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="rounded-[2rem] border border-slate-800 bg-slate-950 p-4 text-white shadow-2xl shadow-slate-300/70"
+        >
+          <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-3 w-3">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-valkor-orange opacity-30" />
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-valkor-orange" />
+                </span>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-300">Pilot Demo</p>
+              </div>
+              <h3 className="mt-2 text-2xl font-semibold tracking-tight">Live Operational Snapshot</h3>
+            </div>
+            <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-sm font-semibold text-slate-200">
+              Demo Mode
+            </span>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {liveSnapshotMetrics.map((metric) => (
+              <div key={metric.label} className="rounded-[1.25rem] border border-white/10 bg-white/[0.06] p-4">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">{metric.label}</p>
+                <p className="mt-2 text-lg font-semibold text-white">{metric.value}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 rounded-[1.25rem] border border-white/10 bg-white/[0.06] p-4">
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-sm font-semibold text-slate-200">Confidence bar</p>
+              <p className="text-sm font-bold text-orange-300">Likely · 86%</p>
+            </div>
+            <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+              <div className="h-full w-[86%] rounded-full bg-gradient-to-r from-orange-500 to-emerald-400" />
+            </div>
+          </div>
+        </MotionDiv>
+      </div>
+    </section>
+  );
+}
+
 export function WhyNowSection() {
   return (
     <SectionShell
@@ -169,6 +239,58 @@ export function WhyNowSection() {
         Valkor gives administrators a structured way to understand movement and act sooner, grounded in
         daily operations rather than fear-based safety claims.
       </p>
+    </SectionShell>
+  );
+}
+
+export function SignalFlowSection() {
+  return (
+    <SectionShell
+      id="signal-flow"
+      eyebrow="Signal Flow"
+      title="From Local Signal to Administrator-Ready Context"
+      description="Valkor translates approved badge signals, receiver health, pass status, and confidence state into a calm operational view for school staff."
+    >
+      <div className="relative mt-12 rounded-[2rem] border border-slate-200 bg-white p-4 shadow-2xl shadow-slate-200/70 sm:p-6">
+        <div className="signal-flow-rail pointer-events-none absolute left-10 right-10 top-[6.7rem] hidden h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent lg:block">
+          <span className="signal-flow-pulse absolute top-1/2 h-2 w-20 -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-valkor-orange to-transparent" />
+        </div>
+        <div className="grid gap-4 lg:grid-cols-5">
+          {signalFlowSteps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <MotionDiv
+                key={step.title}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
+                className="signal-flow-card relative rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5"
+                style={{ animationDelay: `${index * 0.65}s` }}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-valkor-orange shadow-sm">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <span className="rounded-full border border-orange-200 bg-orange-50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-orange-700">
+                    {signalFlowStatusLabels[index]}
+                  </span>
+                </div>
+                <p className="mt-5 text-sm font-bold uppercase tracking-[0.16em] text-slate-400">0{index + 1}</p>
+                <h3 className="mt-2 text-lg font-semibold tracking-tight text-slate-950">{step.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{step.description}</p>
+              </MotionDiv>
+            );
+          })}
+        </div>
+        <div className="mt-5 flex items-center gap-3 rounded-[1.5rem] border border-orange-200 bg-orange-50 p-5">
+          <Activity className="h-5 w-5 shrink-0 text-valkor-orange" aria-hidden="true" />
+          <p className="text-sm font-semibold leading-6 text-slate-950">
+            The flow is zone-level and human-reviewed. Valkor surfaces context for approved
+            administrators; it does not create automatic discipline decisions or claim GPS precision.
+          </p>
+        </div>
+      </div>
     </SectionShell>
   );
 }
@@ -292,12 +414,7 @@ export function HowItWorksSection() {
 
 export function PilotProgramSection() {
   const scope = pilotScope.slice(0, 5);
-  const boundaries = [
-    { label: "GPS", value: "No" },
-    { label: "Biometrics", value: "No" },
-    { label: "Autonomous discipline", value: "No" },
-    { label: "Emergency dependency", value: "None" }
-  ];
+  const boundaries = pilotBoundaryItems;
 
   return (
     <SectionShell
@@ -317,8 +434,8 @@ export function PilotProgramSection() {
         </div>
         <div className="mt-5 flex flex-wrap gap-2">
           {boundaries.map((item) => (
-            <span key={item.label} className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 text-sm font-semibold text-slate-200">
-              {item.label}: {item.value}
+            <span key={item} className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 text-sm font-semibold text-slate-200">
+              {item}
             </span>
           ))}
         </div>
@@ -359,6 +476,14 @@ export function PilotProgramSection() {
           Valkor earns expansion by proving usefulness, reliability, and trust in a limited deployment first.
         </p>
       </div>
+      <div className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Pilot measurement examples</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {pilotMeasurementExamples.map((item) => (
+            <Chip key={item}>{item}</Chip>
+          ))}
+        </div>
+      </div>
       <div className="mt-6 flex justify-center">
         <Button href="#request-pilot" showArrow>
           Request a Controlled Pilot Review
@@ -374,9 +499,30 @@ export function TrustPrivacySection() {
       id="trust-privacy"
       eyebrow="Trust & Privacy"
       title="Privacy and Operational Data"
-      description="Valkor is built around transparent operational intelligence: collect only what is operationally justified, explain it clearly, and place strong controls around it."
+      description="Valkor is a school-controlled operational awareness system. It collects only data that is operationally justified, explains why that data exists, limits access, and preserves human review."
       muted
     >
+      <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {trustPrivacyCards.map((item) => (
+          <IconCard key={item.title} item={item} />
+        ))}
+      </div>
+
+      <div className="mt-6 rounded-[2rem] border border-orange-200 bg-orange-50 p-6">
+        <h3 className="text-xl font-semibold text-slate-950">School Control</h3>
+        <p className="mt-3 text-base leading-7 text-slate-700">
+          The school or district defines the operational boundaries. Valkor provides operational
+          intelligence under school-approved rules; it does not decide school policy.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {schoolControlItems.map((item) => (
+            <Chip key={item} tone="orange">
+              {item}
+            </Chip>
+          ))}
+        </div>
+      </div>
+
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/60">
           <h3 className="text-xl font-semibold text-slate-950">Data Valkor may process</h3>
@@ -408,18 +554,54 @@ export function TrustPrivacySection() {
           </p>
         </div>
         <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 className="text-xl font-semibold text-slate-950">Access control</h3>
+          <h3 className="text-xl font-semibold text-slate-950">Access & Permissions</h3>
+          <p className="mt-3 text-sm leading-6 text-slate-600">
+            Access should follow least-privilege principles and legitimate operational need.
+            Schools define who can view live status, incidents, historical data, receiver health,
+            audit logs, and technical data.
+          </p>
           <div className="mt-5 flex flex-wrap gap-2">
             {accessControlItems.map((item) => (
               <Chip key={item}>{item}</Chip>
             ))}
           </div>
-          <p className="mt-5 text-sm leading-6 text-slate-600">
-            Valkor should not imply that students, parents, or general staff can see live movement data
-            by default.
-          </p>
         </div>
       </div>
+      <div className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+        <h3 className="text-xl font-semibold text-slate-950">Human Review</h3>
+        <p className="mt-3 text-base leading-7 text-slate-700">
+          Valkor is a decision-support system. It may surface alerts, stale-data warnings,
+          confidence indicators, receiver-health issues, pass exceptions, and incident workflow
+          information; school personnel verify facts and decide action.
+        </p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {humanReviewItems.map((item) => (
+            <div key={item} className="flex gap-3 rounded-2xl bg-slate-50 p-4 text-sm font-medium leading-6 text-slate-700">
+              <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-valkor-orange" aria-hidden="true" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <p className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 text-sm leading-6 text-slate-600 shadow-sm">
+        This page is informational and is not legal advice. Final privacy, compliance, contract,
+        retention, and deployment review should be completed by the school, district, or counsel
+        before deployment.
+      </p>
+    </SectionShell>
+  );
+}
+
+export function ClearBoundariesSection() {
+  return (
+    <SectionShell
+      id="clear-operational-boundaries"
+      eyebrow="Operational Boundaries"
+      title="Clear Operational Boundaries"
+      description="Valkor is built around school-controlled visibility, human review, and clearly defined limits."
+      muted
+    >
+      <BoundariesToggle />
     </SectionShell>
   );
 }
@@ -527,29 +709,20 @@ export function DoesNotDoSection() {
       description="Valkor is intentionally bounded so schools can evaluate it responsibly. These limits are part of the product strategy."
       muted
     >
-      <div className="mt-12 grid gap-6 lg:grid-cols-2">
-        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 className="text-xl font-semibold text-slate-950">Valkor does not use</h3>
-          <div className="mt-5 grid gap-3">
-            {doesNotDo.map((item) => (
-              <div key={item} className="flex gap-3 rounded-2xl bg-slate-50 p-4 text-sm font-medium leading-6 text-slate-700">
-                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-valkor-orange" aria-hidden="true" />
-                <span>{item}</span>
-              </div>
-            ))}
+      <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {doesNotDoGroups.map((group) => (
+          <div key={group.title} className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-950">{group.title}</h3>
+            <div className="mt-5 grid gap-3">
+              {group.items.map((item) => (
+                <div key={item} className="flex gap-3 rounded-2xl bg-slate-50 p-4 text-sm font-medium leading-6 text-slate-700">
+                  <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-valkor-orange" aria-hidden="true" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 className="text-xl font-semibold text-slate-950">Valkor is designed for</h3>
-          <div className="mt-5 grid gap-3">
-            {designedFor.map((item) => (
-              <div key={item} className="flex gap-3 rounded-2xl bg-slate-50 p-4 text-sm font-medium leading-6 text-slate-700">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
       <div className="mt-6 rounded-2xl border border-orange-200 bg-orange-50 p-5 text-base font-semibold leading-7 text-slate-950">
           Valkor provides supplemental, school-controlled operational visibility. It does not replace
@@ -749,8 +922,8 @@ export function FAQPreviewSection() {
 }
 
 export function ResourcesSection() {
-  const available = resources.slice(0, 4);
-  const comingSoon = resources.slice(4);
+  const available = resources.filter((resource) => resource.status === "Available on request");
+  const comingSoon = resources.filter((resource) => resource.status === "Coming soon");
   const groups = [
     { label: "Available on request", items: available, tone: "orange" as const },
     { label: "Coming soon", items: comingSoon, tone: "slate" as const }
@@ -773,8 +946,8 @@ export function ResourcesSection() {
             </div>
             <div className="mt-5 grid gap-3">
               {group.items.map((resource) => (
-                <div key={resource} className="flex items-center justify-between gap-4 rounded-2xl bg-slate-50 p-4">
-                  <span className="text-sm font-semibold text-slate-800">{resource}</span>
+                <div key={resource.title} className="flex items-center justify-between gap-4 rounded-2xl bg-slate-50 p-4">
+                  <span className="text-sm font-semibold text-slate-800">{resource.title}</span>
                   <Chip tone={group.tone}>{group.label}</Chip>
                 </div>
               ))}
@@ -792,7 +965,7 @@ export function FutureRoadmapSection() {
       id="future-roadmap"
       eyebrow="Roadmap"
       title="Platform Roadmap"
-      description="Valkor starts with daily operational awareness and expands only as the underlying trust, reliability, and workflow foundation is proven."
+      description="Valkor starts with daily operational awareness. Long-term emergency coordination, drill analysis, congestion awareness, and safety-routing capabilities require separate approval, testing, documentation, and deployment agreement coverage."
     >
       <div className="mt-12 overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-xl shadow-slate-200/70">
         <div className="grid gap-3 md:grid-cols-5">
@@ -833,13 +1006,14 @@ export function FutureRoadmapSection() {
       </div>
       <div className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-950 p-6 text-white shadow-xl shadow-slate-300/60">
         <p className="text-lg font-semibold leading-8">
-          Valkor&apos;s first objective is to prove reliable, controlled operational visibility. Emergency
-          coordination becomes stronger after the foundation is trusted.
+          Valkor&apos;s first objective is to prove reliable, controlled operational visibility.
+          Future emergency coordination becomes stronger only after the foundation is trusted.
         </p>
         <p className="mt-4 text-sm leading-6 text-slate-300">
-          Emergency routing is a future infrastructure layer, not the first pilot dependency. Any future
-          routing intelligence would be decision support for trained school leaders and would not
-          replace school emergency procedures or guarantee outcomes.
+          Future emergency routing is not active in the first pilot. Valkor is not an emergency
+          replacement system, guaranteed evacuation tool, law-enforcement command system, or substitute
+          for existing school safety procedures. Any future routing intelligence would be decision
+          support for trained school leaders, not automatic command or guaranteed outcome.
         </p>
       </div>
     </SectionShell>
