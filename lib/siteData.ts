@@ -37,20 +37,18 @@ export type IconCard = {
 };
 
 export const navigation = [
-  { label: "Home", href: "#" },
-  { label: "How It Works", href: "#how-it-works" },
+  { label: "Product", href: "#what-valkor-helps-schools-do" },
   { label: "Pilot Program", href: "#pilot-program" },
   { label: "Trust & Privacy", href: "#trust-privacy" },
   { label: "Technical Overview", href: "#technical-overview" },
-  { label: "Resources", href: "#resources" }
+  { label: "Request Pilot", href: "#request-pilot" }
 ];
 
 export const heroTrustPills = [
   "No GPS",
   "No Cameras",
   "No Biometrics",
-  "Human-controlled",
-  "Limited Pilots"
+  "Human Reviewed"
 ];
 
 export const liveSnapshotMetrics = [
@@ -64,12 +62,12 @@ export const liveSnapshotMetrics = [
 export const signalFlowSteps: IconCard[] = [
   {
     title: "Approved badge emits local signal",
-    description: "Approved badges broadcast local building signals inside a school-controlled pilot area.",
+    description: "Approved badges broadcast local building signals inside the pilot scope.",
     icon: IdCard
   },
   {
-    title: "Receiver detects school-defined zone",
-    description: "Fixed receivers listen in approved zones and report what they hear without GPS-level precision.",
+    title: "Receiver detects defined area",
+    description: "Fixed receivers listen in approved areas and report what they hear without GPS precision.",
     icon: Radio
   },
   {
@@ -84,14 +82,14 @@ export const signalFlowSteps: IconCard[] = [
   },
   {
     title: "Dashboard surfaces reviewable context",
-    description: "Approved administrators see confidence-aware context and decide what follow-up is appropriate.",
+    description: "Approved administrators see reviewable context and decide what follow-up is appropriate.",
     icon: MonitorCheck
   }
 ];
 
 export const signalFlowStatusLabels = [
   "Signal Received",
-  "Zone Detected",
+  "Area Detected",
   "Confidence Checked",
   "Movement Reviewed",
   "Admin Review Ready"
@@ -124,15 +122,15 @@ export const helpsSchoolsDo: IconCard[] = [
     icon: Clock
   },
   {
-    title: "Zone-level awareness",
+    title: "Building-area awareness",
     description:
-      "Focus on school-defined areas such as hallways, bathrooms, cafeterias, offices, classroom wings, gyms, exits, and restricted zones - not exact GPS coordinates.",
+      "Focus on defined areas such as hallways, bathrooms, cafeterias, offices, gyms, exits, and restricted spaces - not exact GPS coordinates.",
     icon: MapPinned
   },
   {
-    title: "Confidence-based visibility",
+    title: "Signal honesty",
     description:
-      "Show whether a zone estimate is confirmed, likely, weak, uncertain, stale, or unknown instead of pretending imperfect signal data is perfect.",
+      "Show whether a location estimate is confirmed, likely, weak, uncertain, stale, or unknown instead of overstating imperfect data.",
     icon: Gauge
   },
   {
@@ -144,7 +142,7 @@ export const helpsSchoolsDo: IconCard[] = [
   {
     title: "Incident workflow",
     description:
-      "Support detection, validation, acknowledgement, assignment, response, resolution, and dismissal inside a human-controlled workflow.",
+      "Support detection, validation, acknowledgement, assignment, response, resolution, and dismissal.",
     icon: ClipboardCheck
   },
   {
@@ -159,7 +157,7 @@ export const whyNowCards = [
   {
     title: "More movement to manage",
     description:
-      "Schools are managing hall passes, transitions, office visits, late arrivals, early dismissals, lunch movement, and event-day flow with limited live context."
+      "Hall passes, transitions, office visits, late arrivals, dismissals, lunch movement, and event-day flow all create live operational questions."
   },
   {
     title: "Disconnected tools",
@@ -169,7 +167,7 @@ export const whyNowCards = [
   {
     title: "Faster follow-up expectations",
     description:
-      "Administrators need a structured way to understand movement, assign response, and document outcomes without turning every signal into a crisis."
+      "Administrators need to understand movement, assign follow-up, and document outcomes without turning every signal into a crisis."
   }
 ];
 
@@ -293,7 +291,7 @@ export const pilotMetrics = [
 ];
 
 export const pilotOutcomes = [
-  "How reliable zone-level visibility is",
+  "How reliable building-area visibility is",
   "Which areas create the most movement confusion",
   "How often students are overdue or off-route",
   "Whether administrators find the dashboard useful",
@@ -394,15 +392,15 @@ export const operationalData = [
 
 export const trustPrivacyCards: IconCard[] = [
   {
-    title: "School-Controlled Operational Awareness",
+    title: "School-Governed Operations",
     description:
-      "Valkor provides operational intelligence under school-approved boundaries. Schools and districts remain responsible for deployment scope, policy, review, and action.",
+      "Schools and districts remain responsible for deployment scope, policy, review, and action.",
     icon: School
   },
   {
-    title: "Zone-Level Awareness, Not Exact Location Tracking",
+    title: "Area Awareness, Not Exact Tracking",
     description:
-      "Valkor supports school-defined zones and confidence states. It is not GPS, foot-by-foot positioning, or home tracking.",
+      "Valkor supports defined areas and confidence states. It is not GPS, foot-by-foot positioning, or home tracking.",
     icon: MapPinned
   },
   {
@@ -414,7 +412,7 @@ export const trustPrivacyCards: IconCard[] = [
   {
     title: "Human Review Before Action",
     description:
-      "Valkor may surface alerts, stale-data warnings, pass exceptions, and confidence indicators. School personnel verify facts and decide next steps.",
+      "Valkor may surface alerts, stale-data warnings, pass exceptions, and signal indicators. School personnel verify facts and decide next steps.",
     icon: UserCheck
   },
   {
@@ -438,7 +436,7 @@ export const trustPrivacyCards: IconCard[] = [
 ];
 
 export const dataPurposes = [
-  "Zone-level visibility",
+  "Building-area visibility",
   "Hallway accountability",
   "Overdue pass detection",
   "Route deviation detection",
@@ -447,7 +445,7 @@ export const dataPurposes = [
   "Incident documentation",
   "Pilot evaluation",
   "Historical reporting",
-  "Future emergency-routing and congestion intelligence where approved"
+  "Future congestion or emergency decision support where separately approved"
 ];
 
 export const accessControlItems = [
@@ -596,13 +594,10 @@ export const trustStack = [
 ];
 
 export const productProofCaptions = [
-  "Dashboard overview",
-  "People/zone state",
-  "Confidence indicator",
-  "Receiver health",
-  "Stale data warning",
-  "Incident workflow",
-  "Pilot report metrics"
+  "Command View",
+  "Movement State",
+  "Incident Workflow",
+  "Pilot Reporting"
 ];
 
 export const missionCards: IconCard[] = [
@@ -626,7 +621,7 @@ export const missionCards: IconCard[] = [
 export const pilotProofCards = [
   {
     title: "Usefulness",
-    description: "Do administrators get clearer follow-up context without adding operational burden?"
+    description: "Do administrators get clearer follow-up context without extra operational burden?"
   },
   {
     title: "Reliability",
@@ -634,7 +629,7 @@ export const pilotProofCards = [
   },
   {
     title: "Trust",
-    description: "Can the school explain the data, boundaries, access model, and human-reviewed workflow?"
+    description: "Can the school explain the data, boundaries, access model, and review process?"
   }
 ];
 
@@ -707,11 +702,11 @@ export const faqItems = [
   {
     question: "Is Valkor student surveillance?",
     answer:
-      "Valkor is a school-controlled operational awareness system, not consumer surveillance software. It is intended for approved school use, defined zones, and human-reviewed operations."
+      "Valkor is an operational awareness system, not consumer surveillance software. It is intended for approved school use, defined areas, and staff review."
   },
   {
     question: "Does Valkor track exact location?",
-    answer: "No. Valkor supports zone-level awareness in school-defined areas. It is not GPS, foot-by-foot tracking, or home tracking."
+    answer: "No. Valkor supports area-level awareness in school-defined spaces. It is not GPS, foot-by-foot tracking, or home tracking."
   },
   {
     question: "Does Valkor follow students home?",
@@ -729,12 +724,12 @@ export const faqItems = [
   {
     question: "Does Valkor automatically discipline students?",
     answer:
-      "No. Valkor can surface operational context, confidence indicators, and workflow information, but school personnel verify facts and decide action."
+      "No. Valkor can surface operational context and workflow information, but school personnel verify facts and decide action."
   },
   {
     question: "What does zone-level mean?",
     answer:
-      "Zone-level means Valkor estimates areas such as hallway, bathroom entrance, cafeteria, office, classroom wing, gym, exit area, or restricted zone. It is not trying to show exact foot-by-foot location."
+      "It means Valkor estimates areas such as hallway, bathroom entrance, cafeteria, office, gym, exit area, or restricted space. It is not trying to show exact foot-by-foot location."
   },
   {
     question: "What happens if Valkor is uncertain?",
@@ -781,7 +776,7 @@ export const faqItems = [
 export const resources = [
   { title: "Privacy & Operational Data Brief", status: "Available on request" },
   { title: "What Valkor Does Not Do", status: "Available on request" },
-  { title: "School Control & Access Overview", status: "Available on request" },
+  { title: "School Governance & Access Overview", status: "Available on request" },
   { title: "Pilot Boundaries Overview", status: "Available on request" },
   { title: "Parent-Facing Explanation", status: "Coming soon" },
   { title: "IT & Security Review Brief", status: "Coming soon" },
@@ -792,7 +787,7 @@ export const resources = [
 export const productScreenshots = [
   {
     title: "Command center overview",
-    description: "Demo/live mode, receiver health, backend status, and command focus.",
+    description: "Mode, receiver health, backend status, and command focus.",
     src: "/product/overview.png"
   },
   {
@@ -1003,7 +998,7 @@ export const trustCards: IconCard[] = [
   },
   {
     title: "No GPS tracking",
-    description: "Valkor is positioned around school-controlled zone-level awareness.",
+    description: "Valkor is positioned around approved building-area awareness.",
     icon: Map
   },
   {

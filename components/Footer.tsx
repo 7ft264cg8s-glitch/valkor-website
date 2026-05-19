@@ -6,7 +6,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200 bg-white px-5 py-10 sm:px-6 lg:px-8">
+    <footer className="border-t border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] px-5 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <Image
@@ -39,7 +39,7 @@ export function Footer() {
           ))}
         </div>
       </div>
-      <div className="mx-auto mt-8 max-w-7xl border-t border-slate-200 pt-6 text-sm text-slate-500">
+      <div className="mx-auto mt-8 max-w-7xl border-t border-slate-200/80 pt-6 text-sm text-slate-500">
         © {year} Valkor Systems. All rights reserved.
       </div>
     </footer>
