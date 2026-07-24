@@ -5,9 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:sites": "npm run build && node scripts/prepare-sites-dist.mjs",
     "start": "next start",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .open-next"
+    "lint": "eslint ."
   },
   "overrides": {
     "postcss": "$postcss",
