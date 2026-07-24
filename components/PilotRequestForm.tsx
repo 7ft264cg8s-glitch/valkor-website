@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
-import { formInterests } from "@/lib/siteData";
+import { formInterests, reviewInterests } from "@/lib/siteData";
 
 const fieldClass =
   "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-950 shadow-sm shadow-slate-200/40 outline-none transition placeholder:text-slate-400 focus:border-cyan-600 focus:ring-4 focus:ring-cyan-100";
@@ -36,11 +36,22 @@ export function PilotRequestForm() {
       role: String(formData.get("role") ?? "").trim(),
       schoolDistrict: String(formData.get("school_district") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
-      mainInterest: String(formData.get("main_interest") ?? "").trim(),
+      phone: String(formData.get("phone") ?? "").trim(),
+      schoolSize: String(formData.get("school_size") ?? "").trim(),
+      mainConcern: String(formData.get("main_concern") ?? "").trim(),
+      interestedIn: String(formData.get("interested_in") ?? "").trim(),
       message: String(formData.get("message") ?? "").trim()
     };
 
-    const missing = Object.values(fields).some((value) => !value);
+    const missing = [
+      fields.name,
+      fields.role,
+      fields.schoolDistrict,
+      fields.email,
+      fields.mainConcern,
+      fields.interestedIn,
+      fields.message
+    ].some((value) => !value);
     if (missing) {
       setSuccess(false);
       setError("Please complete all required fields before requesting a pilot review.");
@@ -48,20 +59,23 @@ export function PilotRequestForm() {
     }
 
     const body = [
-      "Valkor Pilot Review Request",
+      "Valkor Limited Pilot Review Request",
       "",
       `Name: ${fields.name}`,
       `Role: ${fields.role}`,
       `School / District: ${fields.schoolDistrict}`,
       `Email: ${fields.email}`,
-      `Main Interest: ${fields.mainInterest}`,
+      `Phone: ${fields.phone || "Not provided"}`,
+      `School Size: ${fields.schoolSize || "Not provided"}`,
+      `Primary Operational Concern: ${fields.mainConcern}`,
+      `Interested In: ${fields.interestedIn}`,
       "",
       "Message:",
       fields.message
     ].join("\n");
 
     const mailto = `mailto:jackson@valkorsystems.com?subject=${encodeURIComponent(
-      "Valkor Pilot Review Request"
+      "Valkor Limited Pilot Review Request"
     )}&body=${encodeURIComponent(body)}`;
 
     setError("");
@@ -76,9 +90,9 @@ export function PilotRequestForm() {
       className="rounded-[1.75rem] border border-slate-200 bg-white p-5 text-slate-950 shadow-2xl shadow-black/20 sm:p-7"
     >
       <div className="mb-6">
-        <h3 className="text-2xl font-semibold tracking-tight text-slate-950">Pilot request</h3>
+        <h3 className="text-2xl font-semibold tracking-tight text-slate-950">Limited pilot request</h3>
         <p className="mt-2 text-sm leading-6 text-slate-600">
-          Share the basics and Valkor will follow up with a controlled review path.
+          Share the basics and Valkor will follow up with a limited pilot review path.
         </p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -94,12 +108,28 @@ export function PilotRequestForm() {
         <Field label="Email">
           <input className={fieldClass} name="email" type="email" autoComplete="email" required />
         </Field>
-        <Field label="Main interest" className="sm:col-span-2">
-          <select className={fieldClass} name="main_interest" defaultValue="" required>
+        <Field label="Phone">
+          <input className={fieldClass} name="phone" type="tel" autoComplete="tel" />
+        </Field>
+        <Field label="School size">
+          <input className={fieldClass} name="school_size" placeholder="Example: 650 students" />
+        </Field>
+        <Field label="Primary operational concern">
+          <select className={fieldClass} name="main_concern" defaultValue="" required>
             <option value="" disabled>
-              Select interest
+              Select operational concern
             </option>
             {formInterests.map((item) => (
+              <option key={item}>{item}</option>
+            ))}
+          </select>
+        </Field>
+        <Field label="Interested in">
+          <select className={fieldClass} name="interested_in" defaultValue="" required>
+            <option value="" disabled>
+              Select next step
+            </option>
+            {reviewInterests.map((item) => (
               <option key={item}>{item}</option>
             ))}
           </select>
@@ -125,7 +155,7 @@ export function PilotRequestForm() {
         type="submit"
         className="mt-5 inline-flex w-full items-center justify-center rounded-full border border-orange-500/20 bg-orange-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-600/20 transition duration-300 hover:bg-orange-700 hover:shadow-xl hover:shadow-orange-600/25 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
       >
-        Request Pilot Review
+        Request a limited pilot review
       </button>
     </form>
   );

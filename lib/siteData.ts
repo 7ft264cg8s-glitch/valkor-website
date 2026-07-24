@@ -37,22 +37,23 @@ export type IconCard = {
 };
 
 export const navigation = [
-  { label: "Product", href: "#what-valkor-helps-schools-do" },
-  { label: "Pilot Program", href: "#pilot-program" },
-  { label: "Trust & Privacy", href: "#trust-privacy" },
-  { label: "Technical Overview", href: "#technical-overview" },
-  { label: "Request Pilot", href: "#request-pilot" }
+  { label: "Product", href: "/#what-valkor-does" },
+  { label: "Pilot Program", href: "/pilot" },
+  { label: "Trust & Privacy", href: "/trust-center" },
+  { label: "Technical Overview", href: "/it-security" },
+  { label: "Request Pilot", href: "/#request-pilot" }
 ];
 
 export const heroTrustPills = [
-  "No GPS",
-  "No Cameras",
-  "No Biometrics",
-  "Human Reviewed"
+  "Configured campus zones",
+  "Authorized staff",
+  "School-issued badges",
+  "Confidence indicators",
+  "Clear audit logs"
 ];
 
 export const liveSnapshotMetrics = [
-  { label: "Receiver Health", value: "4 online / 1 stale", tone: "green" },
+  { label: "Signal Health", value: "4 healthy / 1 stale", tone: "green" },
   { label: "Overdue Passes", value: "2 need review", tone: "orange" },
   { label: "Zone Confidence", value: "Likely · 86%", tone: "blue" },
   { label: "Incident State", value: "Assigned", tone: "slate" },
@@ -61,18 +62,18 @@ export const liveSnapshotMetrics = [
 
 export const signalFlowSteps: IconCard[] = [
   {
-    title: "Approved badge emits local signal",
-    description: "Approved badges broadcast local building signals inside the pilot scope.",
+    title: "School-approved device sends a local signal",
+    description: "School-approved devices or infrastructure generate building-level signals inside the pilot scope.",
     icon: IdCard
   },
   {
-    title: "Receiver detects defined area",
-    description: "Fixed receivers listen in approved areas and report what they hear without GPS precision.",
+    title: "Campus system identifies a defined area",
+    description: "Configured campus infrastructure reports building-level activity without GPS precision.",
     icon: Radio
   },
   {
     title: "Confidence engine checks signal state",
-    description: "Freshness, signal quality, receiver overlap, and receiver health are reviewed before context is shown.",
+    description: "Freshness, signal quality, and infrastructure health are reviewed before context is shown.",
     icon: Gauge
   },
   {
@@ -99,7 +100,7 @@ export const valkorDoes = [
   "Zone-level operational awareness",
   "Hall pass visibility",
   "Overdue movement review",
-  "Receiver health monitoring",
+  "Device and signal health",
   "Human-controlled incident workflow"
 ];
 
@@ -134,9 +135,9 @@ export const helpsSchoolsDo: IconCard[] = [
     icon: Gauge
   },
   {
-    title: "Receiver health monitoring",
+    title: "Device and signal health",
     description:
-      "Give administrators and technical reviewers visibility into receiver status, degraded signals, stale data, and system confidence.",
+      "Give administrators and technical reviewers visibility into device status, degraded signals, stale data, and system confidence.",
     icon: Radio
   },
   {
@@ -148,7 +149,7 @@ export const helpsSchoolsDo: IconCard[] = [
   {
     title: "Pilot proof reporting",
     description:
-      "Measure receiver uptime, zone accuracy, false alerts, missed detections, overdue pass detection, response actions, and privacy feedback.",
+      "Measure system uptime, zone reliability, false alerts reviewed, missed detections reviewed, overdue pass visibility, response actions, and privacy feedback.",
     icon: BarChart3
   }
 ];
@@ -173,35 +174,35 @@ export const whyNowCards = [
 
 export const howItWorksSteps: IconCard[] = [
   {
-    title: "Approved badges emit local building signals",
+    title: "School-approved systems create building signals",
     description:
-      "Students or staff in a pilot may carry approved BLE-enabled badges or tags within school-approved areas.",
+      "Students or staff in a pilot may use school-approved devices or infrastructure within configured campus areas.",
     icon: IdCard
   },
   {
-    title: "Fixed receivers detect school-defined zones",
+    title: "Campus infrastructure supports school-defined zones",
     description:
-      "Receivers are placed in selected school-approved areas such as hallways, bathroom entrances, cafeteria entrances, office areas, or restricted zones.",
+      "Configured campus infrastructure supports selected areas such as hallways, bathroom entrances, cafeteria entrances, office areas, or restricted zones.",
     icon: Radio
   },
   {
     title: "Valkor evaluates confidence and context",
     description:
-      "The system evaluates freshness, receiver health, signal stability, receiver overlap, and movement context before showing operational state.",
+      "The system evaluates freshness, signal stability, infrastructure health, and movement context before showing operational state.",
     icon: Gauge
   },
   {
     title: "Administrators see state and incidents",
     description:
-      "The dashboard shows zone-level state, incidents, confidence, stale data, receiver health, and recommended next steps.",
+      "The dashboard shows zone-level state, incidents, confidence, stale data, infrastructure health, and recommended next steps.",
     icon: MonitorCheck
   }
 ];
 
 export const signalDecisionFlow = [
-  "Approved badge emits a local signal",
-  "Receiver detects the signal in a school-defined zone",
-  "Valkor checks freshness and receiver health",
+  "Approved campus signal is generated",
+  "School system identifies a configured zone",
+  "Valkor checks freshness and infrastructure health",
   "Confidence engine estimates zone state",
   "Movement engine compares pass context and expected route",
   "Dashboard surfaces reviewable operational context",
@@ -219,7 +220,7 @@ export const movementSignals = [
   "Route deviation",
   "Repeated movement pattern",
   "Restricted-zone presence",
-  "Receiver health",
+  "Infrastructure health",
   "Signal freshness",
   "Confidence score",
   "Incident history",
@@ -229,12 +230,12 @@ export const movementSignals = [
 
 export const pilotScope = [
   { label: "Duration", value: "4-6 weeks" },
-  { label: "Receivers", value: "3-5" },
-  { label: "Badges/devices", value: "10-30" },
-  { label: "Zones", value: "2-4" },
+  { label: "Infrastructure", value: "Reviewed privately" },
+  { label: "Devices", value: "10-30 approved badges/devices" },
+  { label: "Zones", value: "2-4 school-defined areas" },
   {
     label: "Use cases",
-    value: "Hall pass movement, overdue trips, route deviation, receiver health, admin follow-up"
+    value: "Pass accountability, attendance review, incident workflow, staff response, reliability proof"
   },
   { label: "Emergency dependency", value: "None" },
   { label: "GPS", value: "No" },
@@ -253,19 +254,19 @@ export const pilotBoundaryItems = [
   "No biometrics",
   "No cameras",
   "No microphones",
-  "No autonomous discipline",
+  "No automatic discipline",
   "Documented success metrics",
   "Documented failure conditions",
   "End-of-pilot review"
 ];
 
 export const pilotMeasurementExamples = [
-  "Receiver uptime",
-  "Packet reliability",
+  "System uptime",
+  "Signal feed reliability",
   "Stale-data rate",
   "Confidence levels",
-  "False alerts",
-  "Missed detections",
+  "False alerts reviewed",
+  "Missed detections reviewed",
   "Overdue pass visibility",
   "Route deviation review",
   "Staff usefulness",
@@ -274,12 +275,12 @@ export const pilotMeasurementExamples = [
 ];
 
 export const pilotMetrics = [
-  "Receiver uptime",
-  "Packet reliability",
+  "System uptime",
+  "Signal feed reliability",
   "Zone confirmation accuracy",
   "Average confidence score",
-  "False alert count",
-  "Missed detection count",
+  "False alerts reviewed",
+  "Missed detections reviewed",
   "Stale/unknown signal time",
   "Overdue pass detections",
   "Route deviation detections",
@@ -296,7 +297,7 @@ export const pilotOutcomes = [
   "How often students are overdue or off-route",
   "Whether administrators find the dashboard useful",
   "Which alerts are valuable versus noisy",
-  "Where receiver coverage needs improvement",
+  "Where signal coverage needs improvement",
   "How Valkor fits into existing school workflows",
   "Whether the system is trusted enough for expanded deployment"
 ];
@@ -314,7 +315,7 @@ export const stakeholderValue: IconCard[] = [
   },
   {
     title: "IT / security reviewer",
-    description: "Receiver health, access control, audit logs, system confidence, and limited data scope.",
+    description: "Infrastructure health, access control, audit logs, system confidence, and limited data scope.",
     icon: MonitorCheck
   },
   {
@@ -348,7 +349,7 @@ export const dailyVisibilityUseCases = [
   "Nurse/office visit accountability",
   "Staff response follow-up",
   "Students missing from expected zones",
-  "Receiver/device health",
+  "Device and signal health",
   "Stale or missing signal awareness",
   "Incident acknowledgement and resolution",
   "Incident history review",
@@ -360,7 +361,7 @@ export const dailyVisibilityUseCases = [
   "Potential gathering-risk signals",
   "Drill accountability support",
   "Event-day movement visibility",
-  "Substitute teacher support for student movement",
+  "Substitute teacher support for campus movement",
   "Admin coverage gaps",
   "Bathroom supervision planning",
   "Lunch-period movement management",
@@ -375,16 +376,16 @@ export const carefulScenarioNotes = [
 
 export const operationalData = [
   "Approved badge/device identifiers",
-  "Receiver identifiers",
+  "Infrastructure identifiers",
   "Zone identifiers",
-  "Signal strength readings",
+  "Building-level signal observations",
   "Timestamps",
   "Last seen status",
   "Confidence status",
   "Pass status",
   "Movement events",
   "Incident events",
-  "Receiver health information",
+  "Infrastructure health information",
   "Admin actions",
   "Audit logs",
   "Pilot performance metrics"
@@ -440,7 +441,7 @@ export const dataPurposes = [
   "Hallway accountability",
   "Overdue pass detection",
   "Route deviation detection",
-  "Receiver reliability monitoring",
+  "Signal reliability monitoring",
   "False alert reduction",
   "Incident documentation",
   "Pilot evaluation",
@@ -455,7 +456,7 @@ export const accessControlItems = [
   "Role-based access by legitimate operational need",
   "School-defined live status permissions",
   "School-defined incident and history permissions",
-  "Receiver health and audit access where approved"
+  "Infrastructure health and audit access where approved"
 ];
 
 export const schoolControlItems = [
@@ -513,7 +514,7 @@ export const doesNotDoGroups = [
   {
     title: "No automatic punishment",
     items: [
-      "No autonomous discipline",
+      "No automatic discipline",
       "No automatic staff dispatch",
       "Does not decide guilt, intent, misconduct, or punishment",
       "Weak, missing, stale, or uncertain signals are not misconduct by themselves"
@@ -530,22 +531,22 @@ export const doesNotDo = [
 
 export const designedFor = [
   "School-hours operational use",
-  "School-approved deployment areas",
+  "Configured campus deployment areas",
   "Administrator-controlled access",
   "Zone-level visibility",
   "Confidence-aware alerts",
   "Incident coordination",
   "Operational reporting",
-  "Emergency readiness infrastructure"
+  "Future capability planning"
 ];
 
 export const confidenceStates = ["Confirmed", "Likely", "Weak", "Uncertain", "Stale", "Unknown"];
 
 export const systemHealthItems = [
-  "Receiver online/stale/offline status",
+  "Infrastructure online/stale/offline status",
   "Last seen timestamps",
   "Signal freshness",
-  "Receiver conflict indicators",
+  "Signal conflict indicators",
   "Badge/device health",
   "Unknown or unapproved device handling",
   "Data confidence display"
@@ -556,7 +557,7 @@ export const currentFocus = [
   "Hallway/pass accountability",
   "Overdue movement visibility",
   "Route deviation detection",
-  "Receiver health",
+  "Device and signal health",
   "Confidence-aware operational state",
   "Incident coordination",
   "Pilot reporting"
@@ -575,7 +576,7 @@ export const roadmapPhases = [
   "Daily operational awareness",
   "Pattern intelligence and reporting",
   "Incident coordination",
-  "Emergency readiness infrastructure",
+  "Future capability boundaries",
   "District-scale operational intelligence"
 ];
 
@@ -588,7 +589,7 @@ export const trustStack = [
   "Zone-level visibility",
   "School-controlled access",
   "Confidence-aware alerts",
-  "Receiver health monitoring",
+  "Device and signal health monitoring",
   "Pilot-ready deployment",
   "Human-controlled workflows"
 ];
@@ -607,13 +608,13 @@ export const missionCards: IconCard[] = [
     icon: Activity
   },
   {
-    title: "Emergency readiness",
-    description: "Build trusted operational visibility before higher-stakes emergency coordination layers.",
+    title: "Future capability boundaries",
+    description: "Keep future emergency-facing capabilities separate from current pilot proof.",
     icon: ShieldCheck
   },
   {
     title: "Operational intelligence",
-    description: "Help schools understand receiver health, confidence levels, incident follow-up, and pilot results.",
+    description: "Help schools understand signal health, confidence levels, incident follow-up, and pilot results.",
     icon: BarChart3
   }
 ];
@@ -625,7 +626,7 @@ export const pilotProofCards = [
   },
   {
     title: "Reliability",
-    description: "Where is receiver coverage strong, stale, weak, or in need of adjustment?"
+    description: "Where is signal coverage strong, stale, weak, or in need of adjustment?"
   },
   {
     title: "Trust",
@@ -634,16 +635,16 @@ export const pilotProofCards = [
 ];
 
 export const reliabilityStates = [
-  "Receiver online",
-  "Receiver stale",
-  "Receiver offline",
+  "Infrastructure online",
+  "Infrastructure stale",
+  "Infrastructure offline",
   "Data fresh",
   "Data stale",
   "Signal lost",
   "Unknown",
   "Candidate zone",
   "Confirmed zone",
-  "Receiver conflict",
+  "Signal conflict",
   "Low confidence",
   "No recent reading",
   "Demo mode",
@@ -676,17 +677,17 @@ export const resolutionReasons = [
   "Student returned",
   "Staff checked",
   "False alert",
-  "Receiver issue",
+  "Infrastructure issue",
   "Pass corrected",
   "Manual override",
   "Real issue resolved"
 ];
 
 export const technicalComponents: IconCard[] = [
-  { title: "BLE badge or tag", description: "Approved pilot devices emit local signals.", icon: IdCard },
-  { title: "Fixed receiver/gateway", description: "Receivers listen in selected school-approved zones.", icon: Radio },
-  { title: "Approved device registry", description: "Known devices and receivers are validated before use.", icon: Database },
-  { title: "Receiver heartbeat", description: "Health and freshness indicators help reveal stale coverage.", icon: HeartPulse },
+  { title: "School-approved device", description: "Approved pilot devices or systems provide local signals.", icon: IdCard },
+  { title: "Configured infrastructure", description: "Campus infrastructure supports selected operational zones.", icon: Radio },
+  { title: "Approved device registry", description: "Known devices and infrastructure records are validated before use.", icon: Database },
+  { title: "Infrastructure health", description: "Health and freshness indicators help reveal stale coverage.", icon: HeartPulse },
   { title: "Backend validation", description: "Unknown devices should not become student records.", icon: ShieldCheck },
   { title: "Raw telemetry separation", description: "Operational displays stay focused on reviewed state.", icon: SlidersHorizontal },
   { title: "Zone inference engine", description: "Signals are interpreted as zone-level estimates.", icon: Map },
@@ -700,7 +701,7 @@ export const technicalComponents: IconCard[] = [
 
 export const faqItems = [
   {
-    question: "Is Valkor student surveillance?",
+    question: "How does Valkor handle student location concerns?",
     answer:
       "Valkor is an operational awareness system, not consumer surveillance software. It is intended for approved school use, defined areas, and staff review."
   },
@@ -737,9 +738,9 @@ export const faqItems = [
       "The dashboard should show confidence and freshness states such as confirmed, likely, weak, uncertain, stale, or unknown."
   },
   {
-    question: "What happens if a receiver goes offline?",
+    question: "What happens if signal infrastructure is offline?",
     answer:
-      "The dashboard should show receiver health and avoid pretending the area has reliable live data."
+      "The dashboard should show infrastructure health and avoid pretending the area has reliable live data."
   },
   {
     question: "Who controls deployment?",
@@ -764,7 +765,7 @@ export const faqItems = [
   {
     question: "What data does Valkor collect?",
     answer:
-      "Depending on deployment, Valkor may process operationally justified data such as approved badge IDs, receiver IDs, zone IDs, timestamps, signal readings, confidence states, pass events, incidents, receiver health, admin actions, and audit logs."
+      "Depending on deployment, Valkor may process operationally justified data such as approved badge IDs, infrastructure IDs, zone IDs, timestamps, signal observations, confidence states, pass events, incidents, infrastructure health, admin actions, and audit logs."
   },
   {
     question: "Are emergency routing features active in the first pilot?",
@@ -775,19 +776,19 @@ export const faqItems = [
 
 export const resources = [
   { title: "Privacy & Operational Data Brief", status: "Available on request" },
-  { title: "What Valkor Does Not Do", status: "Available on request" },
+  { title: "Product Boundaries Overview", status: "Available on request" },
   { title: "School Governance & Access Overview", status: "Available on request" },
   { title: "Pilot Boundaries Overview", status: "Available on request" },
-  { title: "Parent-Facing Explanation", status: "Coming soon" },
+  { title: "Parent / Guardian Explanation", status: "Coming soon" },
   { title: "IT & Security Review Brief", status: "Coming soon" },
   { title: "Data Retention & Deletion Overview", status: "Coming soon" },
-  { title: "Future Emergency Features Addendum", status: "Coming soon" }
+  { title: "Future Capability Addendum", status: "Coming soon" }
 ];
 
 export const productScreenshots = [
   {
     title: "Command center overview",
-    description: "Mode, receiver health, backend status, and command focus.",
+    description: "Mode, signal health, system status, and command focus.",
     src: "/product/overview.png"
   },
   {
@@ -812,7 +813,7 @@ export const productScreenshots = [
   },
   {
     title: "Zone coverage",
-    description: "Occupancy, receiver health, issue state, and coverage confidence by zone.",
+    description: "Occupancy, infrastructure health, issue state, and coverage confidence by zone.",
     src: "/product/zone-coverage.png"
   },
   {
@@ -828,23 +829,27 @@ export const productScreenshots = [
 ];
 
 export const footerLinks = [
-  { label: "Pilot Program", href: "#pilot-program" },
-  { label: "Trust & Privacy", href: "#trust-privacy" },
-  { label: "Technical Overview", href: "#technical-overview" },
-  { label: "Resources", href: "#resources" },
-  { label: "Future Roadmap", href: "#future-roadmap" }
+  { label: "Pilot Program", href: "/pilot" },
+  { label: "Trust Center", href: "/trust-center" },
+  { label: "IT & Security", href: "/it-security" },
+  { label: "Resources", href: "/resources" }
 ];
 
 export const formInterests = [
-  "Hallway accountability",
-  "Pass visibility",
-  "Bathroom monitoring",
-  "Receiver reliability",
-  "Incident workflow",
-  "Operational overview",
-  "Emergency planning",
-  "Privacy/security review",
-  "Other"
+  "Hallway pass accountability",
+  "Attendance reconciliation",
+  "Incident workflow / staff response",
+  "Device and infrastructure accountability",
+  "Pilot reliability review",
+  "Other operational concern"
+];
+
+export const reviewInterests = [
+  "Demo",
+  "Pilot",
+  "IT/security review",
+  "Board materials",
+  "Partnership"
 ];
 
 export const schoolTypes = ["Middle school", "High school", "District", "Private school", "Other"];
@@ -865,12 +870,12 @@ export const quickProof = [
 ];
 
 export const heroPreviewRows = [
-  { label: "Approved Zones", value: "Main hallway, office wing", tone: "neutral" },
-  { label: "Overdue movement", value: "2 need review", tone: "orange" },
-  { label: "Receiver health", value: "4 online / 1 stale", tone: "green" },
-  { label: "Confidence", value: "Likely - 86%", tone: "blue" },
+  { label: "Building Areas", value: "Main hallway, office wing", tone: "neutral" },
+  { label: "Pass Accountability", value: "2 need review", tone: "orange" },
+  { label: "System Health", value: "4 healthy / 1 stale", tone: "green" },
+  { label: "Confidence", value: "Fresh - 86%", tone: "blue" },
   { label: "Staff response", value: "Assigned", tone: "green" },
-  { label: "Readiness", value: "Emergency-ready foundation", tone: "orange" }
+  { label: "Readiness", value: "Pilot review ready", tone: "orange" }
 ];
 
 export const publicTechExclusions = [
@@ -878,7 +883,7 @@ export const publicTechExclusions = [
   "Full database schema",
   "Internal code architecture",
   "Security implementation details",
-  "Receiver network details",
+  "Infrastructure network details",
   "Exact deployment maps",
   "Exact floor-plan logic",
   "School floor plans",
@@ -951,8 +956,8 @@ export const platformFeatures: IconCard[] = [
     icon: ClipboardCheck
   },
   {
-    title: "Receiver Health Monitoring",
-    description: "Expose online, stale, degraded, and offline receiver states for pilot review.",
+    title: "Device & Signal Health Monitoring",
+    description: "Expose online, stale, degraded, and offline infrastructure states for pilot review.",
     icon: Radio
   },
   {
@@ -965,7 +970,7 @@ export const platformFeatures: IconCard[] = [
 export const workflowSteps: IconCard[] = [
   {
     title: "Detect",
-    description: "Surface movement, pass, zone, or receiver states that may need attention.",
+    description: "Surface movement, pass, zone, or infrastructure states that may need attention.",
     icon: Activity
   },
   {
@@ -1013,7 +1018,7 @@ export const trustCards: IconCard[] = [
   },
   {
     title: "Limited pilot scope",
-    description: "Pilots are intentionally small, measurable, and school-approved.",
+    description: "Pilots are intentionally small, measurable, and school-controlled.",
     icon: SlidersHorizontal
   },
   {
@@ -1023,17 +1028,17 @@ export const trustCards: IconCard[] = [
   }
 ];
 
-export const receiverHealth = [
-  { name: "Receiver A", status: "Online", tone: "success" },
-  { name: "Receiver B", status: "Online", tone: "success" },
-  { name: "Receiver C", status: "Stale", tone: "warning" },
-  { name: "Receiver D", status: "Online", tone: "success" }
+export const signalHealth = [
+  { name: "Signal Area A", status: "Online", tone: "success" },
+  { name: "Signal Area B", status: "Online", tone: "success" },
+  { name: "Signal Area C", status: "Stale", tone: "warning" },
+  { name: "Signal Area D", status: "Online", tone: "success" }
 ];
 
 export const systemConfidenceFeatures: IconCard[] = [
   {
-    title: "Receiver online/offline status",
-    description: "Expose whether receivers are ready, stale, degraded, or offline.",
+    title: "Infrastructure online/offline status",
+    description: "Expose whether signal systems are ready, stale, degraded, or offline.",
     icon: Radio
   },
   {
@@ -1067,13 +1072,13 @@ export const zoneActivity = [
   { zone: "Main Hallway", confidence: "Confirmed", activity: "Normal movement" },
   { zone: "Cafeteria Corridor", confidence: "Likely", activity: "Moderate congestion" },
   { zone: "East Wing", confidence: "Confirmed", activity: "Two overdue trips" },
-  { zone: "Gym Connector", confidence: "Stale", activity: "Receiver needs review" }
+  { zone: "Gym Connector", confidence: "Stale", activity: "Infrastructure needs review" }
 ];
 
 export const timelineEvents = [
   { time: "10:42", label: "Overdue movement reviewed", zone: "Main Hallway" },
   { time: "10:45", label: "Staff response assigned", zone: "East Wing" },
-  { time: "10:48", label: "Receiver health changed", zone: "Gym Connector" }
+  { time: "10:48", label: "Infrastructure health changed", zone: "Gym Connector" }
 ];
 
 export const systemAlerts = [

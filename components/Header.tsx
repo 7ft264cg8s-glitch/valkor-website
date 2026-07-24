@@ -13,7 +13,7 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-[100] border-b border-slate-200/70 bg-white/95 shadow-sm shadow-slate-200/40 backdrop-blur-2xl">
       <nav className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
-        <Link href="#" className="flex items-center gap-3" aria-label="Valkor Systems home">
+        <Link href="/" className="flex items-center gap-3" aria-label="Valkor Systems home">
           <Image
             src="/valkor-logo.png"
             alt="Valkor Systems"
@@ -24,7 +24,7 @@ export function Header() {
           />
         </Link>
 
-        <div className="hidden items-center gap-8 lg:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {navigation.map((item) => (
             <Link
               key={item.href}
@@ -37,8 +37,8 @@ export function Header() {
         </div>
 
         <div className="hidden lg:block">
-          <Button href="#request-pilot" className="px-4 py-2.5 text-[13px] shadow-md shadow-orange-600/15 hover:shadow-lg hover:shadow-orange-600/20">
-            Request Pilot Review
+          <Button href="/#request-pilot" className="px-4 py-2.5 text-[13px] shadow-md shadow-orange-600/15 hover:shadow-lg hover:shadow-orange-600/20">
+            Limited Pilot Review
           </Button>
         </div>
 
@@ -61,13 +61,13 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg text-base font-medium text-slate-700 transition hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500/70 focus:ring-offset-2"
+                className="rounded-xl text-base font-medium text-slate-700 transition hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500/70 focus:ring-offset-2"
               >
                 {item.label}
               </Link>
             ))}
-            <Button href="#request-pilot" onClick={() => setOpen(false)} className="mt-2 w-full">
-              Request Pilot Review
+            <Button href="/#request-pilot" onClick={() => setOpen(false)} className="mt-2 w-full">
+              Request a Limited Pilot Review
             </Button>
           </div>
         </div>

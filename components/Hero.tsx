@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { CircleDot, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { heroPreviewRows, heroTrustPills } from "@/lib/siteData";
+import { heroPreviewRows } from "@/lib/siteData";
 
 export function Hero() {
   return (
@@ -12,36 +12,27 @@ export function Hero() {
         <div className="min-w-0 max-w-full">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/90 px-4 py-2 text-sm font-semibold text-orange-700 shadow-sm shadow-orange-100/50 backdrop-blur-xl">
             <CircleDot className="h-4 w-4" aria-hidden="true" />
-            School-controlled movement awareness
+            School-controlled operational awareness
           </div>
           <h1 className="max-w-[22rem] text-balance break-words text-3xl font-semibold leading-[1.08] tracking-[-0.025em] text-slate-950 sm:max-w-4xl sm:text-5xl lg:text-[3.35rem] lg:leading-[1.06]">
-            Operational awareness for school movement, passes, and incident follow-up.
+            <span className="block font-semibold text-slate-950">Operational awareness for school administrators.</span>
           </h1>
           <p className="mt-5 max-w-[22rem] text-base leading-8 text-slate-600 sm:max-w-2xl sm:text-lg">
-            Valkor Systems helps approved administrators review pass activity, movement exceptions,
-            receiver health, and incident follow-up from one calm school-hours dashboard.
+            Valkor gives authorized school teams a calm command center for zone-level presence, pass accountability,
+            attendance mismatches, incident workflow, staff response, system confidence, and pilot proof.
+          </p>
+          <p className="mt-4 max-w-[22rem] text-sm font-semibold leading-6 text-slate-600 sm:max-w-2xl">
+            Limited review: 2-4 school-defined zones, 10-30 approved badges/devices, authorized staff only,
+            school-hours only, no GPS, no cameras, no biometrics, no automatic discipline.
           </p>
           <div className="mt-7 flex max-w-[22rem] flex-col gap-3 sm:max-w-none sm:flex-row">
             <Button href="#request-pilot" showArrow className="w-full sm:w-auto">
-              Request Pilot Review
+              Request a Limited Pilot Review
             </Button>
             <Button href="#product-views" variant="secondary" className="w-full sm:w-auto">
               View Product Demo
             </Button>
           </div>
-          <div className="mt-6 flex flex-wrap gap-2.5">
-            {heroTrustPills.map((pill) => (
-              <span
-                key={pill}
-                className="rounded-full border border-slate-200 bg-white/85 px-3.5 py-1.5 text-sm font-semibold text-slate-700 shadow-sm shadow-slate-200/60 backdrop-blur-xl"
-              >
-                {pill}
-              </span>
-            ))}
-          </div>
-          <p className="mt-4 max-w-[22rem] text-sm leading-6 text-slate-500 sm:max-w-2xl">
-            Decision support only. Approved staff verify facts and decide next steps.
-          </p>
         </div>
 
         <div className="relative min-w-0 max-w-[22rem] overflow-visible sm:max-w-full lg:-mt-4 xl:-mr-6">
@@ -59,11 +50,11 @@ export function Hero() {
               </div>
               <Image
                 src="/product/overview.png"
-                alt="Valkor command center dashboard showing demo mode, receiver health, system confidence, and incident controls."
                 width={1800}
                 height={1015}
                 priority
                 sizes="(min-width: 1024px) 55vw, 100vw"
+                alt="Valkor command system view showing operational status, system confidence, incident workflow, and staff response controls."
                 className="aspect-[16/10] w-full min-w-0 object-cover object-left-top"
               />
             </div>
@@ -80,7 +71,7 @@ export function Hero() {
             <div className="flex items-start gap-3">
               <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-hidden="true" />
               <p className="text-sm leading-6 text-slate-600">
-                Review-ready context for approved staff. No automatic discipline.
+                Review-ready context for authorized staff. School personnel decide next steps.
               </p>
             </div>
           </div>

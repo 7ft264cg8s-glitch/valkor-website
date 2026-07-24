@@ -17,8 +17,11 @@ export function Footer() {
             className="h-9 w-auto object-contain"
           />
           <p className="mt-4 max-w-md text-sm leading-6 text-slate-600">
-            School operational awareness for movement accountability, incident coordination, and
-            emergency readiness.
+            School-controlled operational awareness for pass accountability, attendance reconciliation,
+            incident workflow, staff response, confidence, and audit records.
+          </p>
+          <p className="mt-2 max-w-md text-sm font-semibold leading-6 text-slate-700">
+            Currently accepting pilot applications - Virginia and East Coast schools.
           </p>
           <p className="mt-3 text-sm text-slate-600">
             Contact:{" "}

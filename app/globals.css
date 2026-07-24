@@ -26,6 +26,17 @@ body {
   overflow-x: hidden;
 }
 
+.hero-orb {
+  animation: hero-breathe 9s ease-in-out infinite;
+}
+
+.dark-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
 ::selection {
   background: rgba(249, 115, 22, 0.18);
   color: #111827;
@@ -88,6 +99,18 @@ body {
   100% {
     left: calc(100% - 5rem);
     opacity: 0;
+  }
+}
+
+@keyframes hero-breathe {
+  0%,
+  100% {
+    opacity: 0.66;
+    transform: translateX(-50%) scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.04);
   }
 }
 
