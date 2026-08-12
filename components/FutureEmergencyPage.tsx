@@ -124,17 +124,17 @@ function SectionHeader({
   invert?: boolean;
 }) {
   return (
-    <div className="mx-auto max-w-3xl text-center">
+    <div className="mx-auto max-w-4xl text-center">
       {eyebrow ? (
-        <p className={`text-sm font-bold uppercase ${invert ? "text-orange-300" : "text-orange-700"}`}>
+        <p className={`text-xs font-bold uppercase tracking-[0.22em] ${invert ? "text-orange-300" : "text-orange-800"}`}>
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={`mt-3 text-3xl font-semibold sm:text-5xl ${invert ? "text-white" : "text-slate-950"}`}>
+      <h2 className={`mt-4 text-balance text-3xl font-semibold leading-[1.06] tracking-[-0.045em] sm:text-5xl lg:text-6xl ${invert ? "text-white" : "text-[#07111f]"}`}>
         {title}
       </h2>
       {body ? (
-        <p className={`mt-5 text-lg leading-8 ${invert ? "text-slate-300" : "text-slate-600"}`}>{body}</p>
+        <p className={`mx-auto mt-6 max-w-3xl text-base leading-8 sm:text-lg ${invert ? "text-slate-300" : "text-slate-600"}`}>{body}</p>
       ) : null}
     </div>
   );
@@ -142,13 +142,13 @@ function SectionHeader({
 
 function Pill({ children, tone = "light" }: { children: ReactNode; tone?: "light" | "dark" | "orange" }) {
   const tones = {
-    light: "border-slate-200 bg-white text-slate-700 shadow-sm shadow-slate-200/50",
-    dark: "border-white/15 bg-white/[0.08] text-slate-100",
-    orange: "border-orange-200 bg-orange-50 text-orange-800"
+    light: "border-slate-900/10 bg-[#fffdf9] text-slate-700 shadow-sm shadow-slate-950/5",
+    dark: "border-white/15 bg-white/[0.07] text-slate-100 backdrop-blur",
+    orange: "border-orange-800/15 bg-orange-50 text-orange-900"
   };
 
   return (
-    <span className={`inline-flex items-center rounded-full border px-3.5 py-1.5 text-sm font-semibold ${tones[tone]}`}>
+    <span className={`inline-flex min-h-9 items-center rounded-full border px-3.5 py-1.5 text-sm font-semibold ${tones[tone]}`}>
       {children}
     </span>
   );
@@ -159,13 +159,13 @@ function MiniCard({ item, dark = false }: { item: IconItem; dark?: boolean }) {
 
   return (
     <article
-      className={`rounded-[1.5rem] border p-6 ${
-        dark ? "border-white/10 bg-white/5 text-white" : "border-slate-200 bg-white text-slate-950 shadow-sm shadow-slate-200/60"
+      className={`rounded-[1.75rem] border p-6 transition duration-300 hover:-translate-y-1 sm:p-7 ${
+        dark ? "border-white/10 bg-white/[0.045] text-white shadow-[0_20px_55px_rgba(0,0,0,0.14)] hover:border-white/20 hover:bg-white/[0.07]" : "border-slate-900/10 bg-[#fffdf9] text-[#07111f] shadow-[0_20px_55px_rgba(15,23,42,0.07)]"
       }`}
     >
       <div
-        className={`flex h-11 w-11 items-center justify-center rounded-2xl ${
-          dark ? "bg-white/10 text-orange-300" : "border border-orange-100 bg-orange-50 text-valkor-orange"
+        className={`flex h-11 w-11 items-center justify-center rounded-xl border ${
+          dark ? "border-white/10 bg-white/[0.07] text-orange-300" : "border-orange-800/10 bg-orange-50 text-orange-800"
         }`}
       >
         <Icon className="h-5 w-5" aria-hidden="true" />
@@ -178,9 +178,9 @@ function MiniCard({ item, dark = false }: { item: IconItem; dark?: boolean }) {
 
 function FlowStep({ title, icon: Icon }: { title: string; icon: LucideIcon }) {
   return (
-    <div className="flex min-h-28 flex-col justify-between rounded-[1.25rem] border border-slate-200 bg-white p-4 shadow-sm shadow-slate-200/60">
-      <Icon className="h-5 w-5 text-cyan-700" aria-hidden="true" />
-      <p className="mt-4 text-sm font-semibold leading-5 text-slate-950">{title}</p>
+    <div className="flex min-h-24 min-w-0 flex-col justify-between rounded-[1.35rem] border border-slate-900/10 bg-[#fffdf9] p-5 shadow-sm shadow-slate-950/5 transition duration-300 hover:-translate-y-0.5 hover:border-orange-800/20 hover:bg-white sm:min-h-28 lg:min-h-36">
+      <Icon className="h-5 w-5 text-orange-800" aria-hidden="true" />
+      <p className="mt-5 text-sm font-semibold leading-5 text-[#07111f]">{title}</p>
     </div>
   );
 }
@@ -190,21 +190,21 @@ export function FutureEmergencyPage() {
     <>
       <Header />
       <div aria-hidden="true" className="h-[4.5rem]" />
-      <main className="bg-white text-slate-950">
-        <section className="relative isolate overflow-hidden border-b border-slate-200 bg-white px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <main className="bg-[#fffdf9] text-slate-950">
+        <section className="relative isolate overflow-hidden border-b border-slate-900/10 bg-[radial-gradient(circle_at_10%_12%,rgba(194,65,12,0.13),transparent_28%),linear-gradient(135deg,#f2ede5_0%,#fffdf9_100%)] px-5 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.88fr_1.12fr] lg:items-center xl:gap-20">
             <div>
-              <p className="text-sm font-bold uppercase text-orange-700">Future Capability Direction</p>
-              <h1 className="mt-4 text-5xl font-semibold leading-none sm:text-7xl lg:text-8xl">The Future</h1>
-              <p className="mt-6 max-w-2xl text-2xl font-semibold leading-9 text-slate-900 sm:text-3xl">
+              <p className="inline-flex rounded-full border border-orange-800/15 bg-orange-50/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-orange-800 shadow-sm backdrop-blur">Future Capability Direction</p>
+              <h1 className="mt-7 text-[clamp(4rem,9vw,8.5rem)] font-semibold leading-[0.84] tracking-[-0.07em] text-[#07111f]">The Future</h1>
+              <p className="mt-8 max-w-2xl text-balance text-2xl font-semibold leading-9 tracking-[-0.025em] text-slate-900 sm:text-3xl sm:leading-10">
                 Dynamic routing for the moments static plans cannot predict.
               </p>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
                 Valkor starts with trusted daily visibility: zone-level awareness, pass movement, receiver health,
                 confidence status, incident workflow, and staff response coordination. That foundation is what makes
                 future emergency intelligence possible without building on guesswork.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Button href="/#request-pilot" showArrow>
                   Request Pilot Review
                 </Button>
@@ -214,21 +214,21 @@ export function FutureEmergencyPage() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-[0_34px_110px_rgba(15,23,42,0.18)]">
+            <div className="group relative overflow-hidden rounded-[2rem] border border-white/80 bg-[#07111f] shadow-[0_35px_110px_rgba(15,23,42,0.22)] ring-1 ring-slate-950/10 sm:rounded-[2.5rem]">
               <Image
                 src="/brand/valkor-floorplan-light.png"
                 alt="Conceptual Valkor floorplan with routed signal paths"
                 width={1680}
                 height={945}
                 priority
-                className="aspect-[4/3] w-full object-cover object-center opacity-95"
+                className="aspect-[4/3] w-full object-cover object-center opacity-95 transition duration-700 group-hover:scale-[1.015] group-hover:saturate-[1.06]"
                 sizes="(min-width: 1024px) 52vw, 100vw"
               />
-              <div className="absolute inset-x-4 bottom-4 grid gap-2 sm:grid-cols-2">
+              <div className="absolute inset-x-3 bottom-3 grid grid-cols-2 gap-2 sm:inset-x-5 sm:bottom-5">
                 {["Hazard marked", "Exit available", "Confidence likely", "Staff assigned"].map((label) => (
                   <div
                     key={label}
-                    className="rounded-full border border-white/20 bg-slate-950/72 px-3 py-2 text-center text-xs font-semibold text-white backdrop-blur-xl"
+                    className="rounded-full border border-white/15 bg-[#07111f]/80 px-2.5 py-2 text-center text-[0.6875rem] font-semibold text-white shadow-sm backdrop-blur-xl sm:px-3 sm:text-xs"
                   >
                     {label}
                   </div>
@@ -238,13 +238,13 @@ export function FutureEmergencyPage() {
           </div>
         </section>
 
-        <section className="border-b border-slate-200 bg-[#f5f5f7] px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <section className="border-b border-slate-900/10 bg-[#fffdf9] px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start lg:gap-16">
             <div>
-              <p className="text-sm font-bold uppercase text-cyan-700">Why It Matters</p>
-              <h2 className="mt-3 text-4xl font-semibold sm:text-6xl">Real buildings do not move in perfect plans.</h2>
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-800">Why It Matters</p>
+              <h2 className="mt-4 max-w-xl text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-[#07111f] sm:text-6xl">Real buildings do not move in perfect plans.</h2>
             </div>
-            <div className="space-y-5 text-lg leading-8 text-slate-600">
+            <div className="space-y-6 border-t border-slate-900/10 pt-6 text-base leading-8 text-slate-600 sm:text-lg lg:mt-1">
               <p>
                 Most school safety systems are built around fixed procedures: lockdown here, evacuate there,
                 follow the posted route. Those procedures matter. Worst-case events rarely unfold inside clean
@@ -256,38 +256,38 @@ export function FutureEmergencyPage() {
                 become unsafe. A route that works for the majority may fail the person who starts from the wrong
                 place at the wrong time.
               </p>
-              <p className="font-semibold text-slate-950">
+              <p className="border-l-2 border-orange-700 pl-5 font-semibold text-[#07111f]">
                 Static plans protect the average scenario. Valkor is being designed for the variables.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="bg-white px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <section className="bg-[#f2ede5] px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               eyebrow="Current and Future"
               title="The boundary is part of the product."
               body="Valkor keeps a clear line between what is active today, what is being built toward, and what must be separately approved before emergency use."
             />
-            <div className="mt-12 grid gap-5 lg:grid-cols-2">
-              <article className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/60 sm:p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50 text-emerald-700">
+            <div className="mt-12 grid gap-px overflow-hidden rounded-[2.25rem] border border-slate-900/10 bg-slate-900/10 lg:grid-cols-2">
+              <article className="bg-[#fffdf9] p-6 sm:p-9 lg:p-10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-emerald-800/15 bg-emerald-50 text-emerald-800">
                   <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h3 className="mt-6 text-3xl font-semibold text-slate-950">Where Valkor starts</h3>
-                <p className="mt-4 text-base leading-7 text-slate-600">
+                <h3 className="mt-7 text-3xl font-semibold tracking-[-0.035em] text-[#07111f]">Where Valkor starts</h3>
+                <p className="mt-4 text-base leading-8 text-slate-600">
                   Valkor begins with school-controlled operational awareness: approved badges, school-defined zones,
                   active passes, receiver or anchor health, stale-data handling, confidence levels, and admin-reviewed
                   incidents.
                 </p>
               </article>
-              <article className="rounded-[2rem] border border-orange-200 bg-orange-50 p-6 shadow-sm shadow-orange-100/60 sm:p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-200 bg-white text-orange-700">
+              <article className="bg-[#fff7ed] p-6 sm:p-9 lg:p-10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-orange-800/15 bg-[#fffdf9] text-orange-800">
                   <GitBranch className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h3 className="mt-6 text-3xl font-semibold text-slate-950">Where Valkor is going</h3>
-                <p className="mt-4 text-base leading-7 text-slate-700">
+                <h3 className="mt-7 text-3xl font-semibold tracking-[-0.035em] text-[#07111f]">Where Valkor is going</h3>
+                <p className="mt-4 text-base leading-8 text-slate-700">
                   Over time, that foundation can support emergency coordination tools such as hazard marking,
                   blocked-path awareness, congestion visibility, staff assignments, drill replay, live
                   accountability, and dynamic route recommendations.
@@ -297,7 +297,7 @@ export function FutureEmergencyPage() {
           </div>
         </section>
 
-        <section className="bg-slate-950 px-5 py-16 text-white sm:px-6 lg:px-8 lg:py-24">
+        <section className="dark-grid border-y border-white/5 bg-[#07111f] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               eyebrow="Three Variables"
@@ -305,7 +305,7 @@ export function FutureEmergencyPage() {
               body="The future emergency layer is built around three practical questions: what is happening, what is blocked or crowded, and what should an authorized adult do next?"
               invert
             />
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
+            <div className="mt-12 grid gap-5 md:grid-cols-3 lg:mt-16">
               {emergencyVariables.map((item) => (
                 <MiniCard key={item.title} item={item} dark />
               ))}
@@ -313,7 +313,7 @@ export function FutureEmergencyPage() {
           </div>
         </section>
 
-        <section className="bg-white px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <section className="bg-[#fffdf9] px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               eyebrow="Dynamic Routing"
@@ -321,25 +321,25 @@ export function FutureEmergencyPage() {
               body="A future routing engine would reason across changing building conditions, school rules, and uncertainty before recommending action."
             />
 
-            <div className="mt-12 rounded-[2rem] border border-slate-200 bg-[#f5f5f7] p-4 shadow-sm shadow-slate-200/60 sm:p-6 lg:p-8">
-              <div className="grid gap-3 md:grid-cols-5">
+            <div className="mt-12 rounded-[2rem] border border-slate-900/10 bg-[#f2ede5] p-4 shadow-[0_24px_70px_rgba(15,23,42,0.08)] sm:p-6 lg:rounded-[2.5rem] lg:p-8">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                 <FlowStep title="Building signals" icon={MapPinned} />
                 <FlowStep title="Zone awareness" icon={Route} />
                 <FlowStep title="Confidence and freshness" icon={Gauge} />
                 <FlowStep title="School context" icon={ClipboardCheck} />
                 <FlowStep title="Human action" icon={UserCheck} />
               </div>
-              <div className="mt-6 grid gap-5 lg:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6">
-                  <h3 className="text-xl font-semibold text-slate-950">A future model could evaluate</h3>
+              <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                <div className="min-w-0 rounded-[1.5rem] border border-slate-900/10 bg-[#fffdf9] p-5 sm:p-6">
+                  <h3 className="text-xl font-semibold tracking-[-0.025em] text-[#07111f]">A future model could evaluate</h3>
                   <div className="mt-5 flex flex-wrap gap-2">
                     {routingInputs.map((item) => (
                       <Pill key={item}>{item}</Pill>
                     ))}
                   </div>
                 </div>
-                <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6">
-                  <h3 className="text-xl font-semibold text-slate-950">Then recommend reviewable actions</h3>
+                <div className="min-w-0 rounded-[1.5rem] border border-slate-900/10 bg-[#fffdf9] p-5 sm:p-6">
+                  <h3 className="text-xl font-semibold tracking-[-0.025em] text-[#07111f]">Then recommend reviewable actions</h3>
                   <div className="mt-5 flex flex-wrap gap-2">
                     {routingActions.map((item) => (
                       <Pill key={item} tone="orange">
@@ -349,7 +349,7 @@ export function FutureEmergencyPage() {
                   </div>
                 </div>
               </div>
-              <p className="mt-6 rounded-[1.5rem] border border-cyan-200 bg-cyan-50 p-5 text-sm font-semibold leading-6 text-slate-800">
+              <p className="mt-6 rounded-r-[1.5rem] border-l-2 border-orange-700 bg-orange-50/70 px-5 py-4 text-sm font-semibold leading-6 text-slate-800 sm:px-6">
                 Valkor should never pretend uncertain information is certain. Confirmed, likely, weak,
                 uncertain, stale, and unknown states are part of safety because false confidence can create risk.
               </p>
@@ -357,39 +357,39 @@ export function FutureEmergencyPage() {
           </div>
         </section>
 
-        <section className="border-y border-slate-200 bg-[#f5f5f7] px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <section className="border-y border-slate-900/10 bg-[#f2ede5] px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               eyebrow="The Road Ahead"
               title="A roadmap, not a day-one promise."
               body="Future emergency coordination only makes sense after the daily operational layer proves reliable, useful, and trusted."
             />
-            <div className="mt-12 grid gap-4 lg:grid-cols-4">
+            <div className="mt-12 grid gap-px overflow-hidden rounded-[2rem] border border-slate-900/10 bg-slate-900/10 sm:grid-cols-2 lg:grid-cols-4">
               {roadmap.map((item) => (
-                <article key={item.phase} className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/60">
-                  <p className="text-sm font-bold uppercase text-orange-700">{item.phase}</p>
-                  <h3 className="mt-4 text-xl font-semibold text-slate-950">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{item.body}</p>
+                <article key={item.phase} className="min-w-0 bg-[#fffdf9] p-6 transition duration-300 hover:bg-white sm:p-7">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-800">{item.phase}</p>
+                  <h3 className="mt-5 text-xl font-semibold leading-6 tracking-[-0.025em] text-[#07111f]">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-[0.9375rem]">{item.body}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="future-boundary" className="bg-white px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <section id="future-boundary" className="bg-[#fffdf9] px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start lg:gap-16">
             <div>
-              <p className="text-sm font-bold uppercase text-orange-700">Future Capability Boundary</p>
-              <h2 className="mt-3 text-4xl font-semibold sm:text-6xl">Designed to support people, not replace them.</h2>
-              <p className="mt-6 text-lg leading-8 text-slate-600">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-800">Future Capability Boundary</p>
+              <h2 className="mt-4 text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-[#07111f] sm:text-6xl">Designed to support people, not replace them.</h2>
+              <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg">
                 Dynamic emergency routing is a future capability, not a default active feature. Any emergency-routing,
                 advanced-location, hazard-aware movement, or emergency-command capability would require separate
                 school approval, testing, documentation, training, privacy review, and governance before use.
               </p>
             </div>
-            <div className="rounded-[2rem] border border-slate-200 bg-slate-950 p-6 text-white shadow-[0_34px_100px_rgba(15,23,42,0.16)] sm:p-8">
+            <div className="rounded-[2rem] border border-slate-950 bg-[#07111f] p-6 text-white shadow-[0_34px_100px_rgba(15,23,42,0.2)] sm:rounded-[2.5rem] sm:p-9">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-orange-300">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.07] text-orange-300">
                   <ShieldCheck className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <div>
@@ -408,13 +408,13 @@ export function FutureEmergencyPage() {
                 ))}
               </div>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-[1.25rem] border border-white/10 bg-white/5 p-4">
+                <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.045] p-4">
                   <AlertTriangle className="h-5 w-5 text-orange-300" aria-hidden="true" />
                   <p className="mt-3 text-sm font-semibold leading-6 text-white">
                     Emergency routing should not be treated as active, validated functionality today.
                   </p>
                 </div>
-                <div className="rounded-[1.25rem] border border-white/10 bg-white/5 p-4">
+                <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.045] p-4">
                   <LockKeyhole className="h-5 w-5 text-orange-300" aria-hidden="true" />
                   <p className="mt-3 text-sm font-semibold leading-6 text-white">
                     Current Valkor remains school-controlled, zone-level operational awareness.
@@ -425,14 +425,14 @@ export function FutureEmergencyPage() {
           </div>
         </section>
 
-        <section className="bg-[#f5f5f7] px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="mx-auto grid max-w-7xl gap-8 rounded-[2rem] bg-white p-6 shadow-sm shadow-slate-200/60 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center">
+        <section className="bg-[#f2ede5] px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="mx-auto grid max-w-7xl gap-8 rounded-[2rem] border border-slate-950 bg-[#07111f] p-6 text-white shadow-[0_30px_90px_rgba(15,23,42,0.2)] sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center lg:p-11">
             <div>
-              <p className="text-sm font-bold uppercase text-cyan-700">Limited Pilot Review</p>
-              <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-5xl">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-300">Limited Pilot Review</p>
+              <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-5xl">
                 Build the foundation first. Prove it before anything expands.
               </h2>
-              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
+              <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300">
                 Pilot reviews focus on reliability, usefulness, privacy comfort, school governance, infrastructure
                 readiness, and clear end-of-pilot reporting.
               </p>

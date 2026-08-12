@@ -4,6 +4,15 @@
 
 :root {
   color-scheme: light;
+  --paper: #f6f2eb;
+  --paper-bright: #fffdf9;
+  --paper-muted: #ebe6de;
+  --ink: #07111f;
+  --ink-soft: #526070;
+  --line: rgba(15, 23, 42, 0.12);
+  --ember: #c94f12;
+  --pointer-x: 50vw;
+  --pointer-y: 20vh;
 }
 
 * {
@@ -11,7 +20,7 @@
 }
 
 html {
-  background: #f8fafc;
+  background: var(--paper);
   overflow-x: hidden;
   scroll-padding-top: 5.5rem;
   scroll-behavior: smooth;
@@ -20,10 +29,45 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 0%, rgba(8, 145, 178, 0.08), transparent 28%),
-    linear-gradient(180deg, #f8fafc 0%, #ffffff 36%, #ffffff 100%);
-  color: #020617;
+    radial-gradient(circle at 12% 0%, rgba(201, 79, 18, 0.065), transparent 28%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-bright) 36%, var(--paper-bright) 100%);
+  color: var(--ink);
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-variation-settings: "wght" 620;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pointer-aura {
+  position: fixed;
+  z-index: 60;
+  left: var(--pointer-x);
+  top: var(--pointer-y);
+  width: 22rem;
+  height: 22rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.075), rgba(249, 115, 22, 0) 70%);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .pointer-aura {
+    display: none;
+  }
 }
 
 .hero-orb {
@@ -32,9 +76,9 @@ body {
 
 .dark-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 52px 52px;
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
 ::selection {
@@ -56,6 +100,39 @@ body {
 
 .text-balance {
   text-wrap: balance;
+}
+
+.hero-blueprint {
+  background-image:
+    linear-gradient(to bottom, rgba(251, 250, 248, 0.03), rgba(251, 250, 248, 0.9) 82%),
+    url("/brand/valkor-architecture-light.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: min(1040px, 94vw) auto;
+  filter: saturate(0.72) contrast(0.9);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.72) 45%, transparent 92%);
+  mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.72) 45%, transparent 92%);
+}
+
+.command-frame-image {
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 640px) {
+  .command-frame-image {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .command-frame-image {
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 700ms ease;
+  }
+
+  .command-frame:hover .command-frame-image {
+    transform: scale(1.015);
+    filter: saturate(1.06) contrast(1.02);
+  }
 }
 
 .signal-flow-card {
@@ -115,6 +192,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .pointer-aura {
+    display: none;
+  }
+
   *,
   *::before,
   *::after {

@@ -6,7 +6,8 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] px-5 py-12 sm:px-6 lg:px-8">
+    <footer className="relative overflow-hidden border-t border-slate-900/10 bg-[linear-gradient(180deg,#fffdf9_0%,#f2ede5_100%)] px-5 py-14 sm:px-6 lg:px-8">
+      <div className="pointer-events-none absolute -right-24 -top-40 h-80 w-80 rounded-full border border-orange-700/10" aria-hidden="true" />
       <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <Image

@@ -55,11 +55,11 @@ function SectionHeading({
       transition={{ duration: 0.65, ease }}
       className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-2xl"}
     >
-      <p className={`text-xs font-bold uppercase tracking-[0.24em] ${light ? "text-orange-300" : "text-orange-600"}`}>
+      <p className={`text-xs font-bold uppercase tracking-[0.24em] ${light ? "text-orange-300" : "text-orange-700"}`}>
         {eyebrow}
       </p>
       <h2
-        className={`mt-4 text-balance text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl ${
+        className={`mt-4 text-balance text-4xl font-semibold leading-[1.01] tracking-[-0.047em] sm:text-5xl lg:text-6xl ${
           light ? "text-white" : "text-slate-950"
         }`}
       >
@@ -102,7 +102,7 @@ function CommandFrame({
 }) {
   return (
     <div
-      className={`overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#07101a] shadow-[0_38px_100px_rgba(2,6,23,0.34)] ring-1 ring-slate-950/10 sm:rounded-[1.75rem] ${className}`}
+      className={`command-frame overflow-hidden rounded-[1rem] border border-white/10 bg-[#07101a] shadow-[0_38px_100px_rgba(2,6,23,0.3)] ring-1 ring-slate-950/10 sm:rounded-[1.4rem] ${className}`}
     >
       <div className="flex h-11 items-center justify-between border-b border-white/10 bg-[#0b121d] px-4">
         <div className="flex items-center gap-1.5" aria-hidden="true">
@@ -122,7 +122,7 @@ function CommandFrame({
         height={1015}
         priority={priority}
         sizes="(min-width: 1280px) 1180px, 94vw"
-        className="aspect-[16/9] w-full object-cover object-left-top"
+        className="command-frame-image w-full object-cover object-left-top"
       />
     </div>
   );
@@ -296,8 +296,9 @@ const boundaries = [
 function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden bg-[#fbfaf8] px-5 pb-20 pt-14 sm:px-6 sm:pb-28 sm:pt-20 lg:px-8 lg:pt-24">
-      <div className="hero-orb pointer-events-none absolute left-1/2 top-28 h-[42rem] w-[58rem] -translate-x-1/2 rounded-full bg-orange-300/25 blur-[130px]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,1),transparent_68%)]" />
+      <div className="hero-blueprint pointer-events-none absolute inset-x-0 top-0 h-[52rem] opacity-[0.12]" />
+      <div className="hero-orb pointer-events-none absolute left-1/2 top-24 h-[38rem] w-[54rem] -translate-x-1/2 rounded-full bg-orange-300/20 blur-[140px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_50%_0%,rgba(255,253,249,1),transparent_70%)]" />
 
       <div className="relative mx-auto max-w-7xl">
         <motion.div
@@ -306,13 +307,13 @@ function HeroSection() {
           transition={{ duration: 0.65, ease }}
           className="mx-auto max-w-5xl text-center"
         >
-          <p className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.17em] text-slate-600 shadow-sm backdrop-blur">
-            <CircleDot className="h-3.5 w-3.5 text-orange-600" aria-hidden="true" />
+          <p className="inline-flex items-center gap-2 rounded-full border border-slate-900/10 bg-[#fffdf9]/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.17em] text-slate-600 shadow-sm backdrop-blur">
+            <CircleDot className="h-3.5 w-3.5 text-orange-700" aria-hidden="true" />
             School operations, made visible
           </p>
-          <h1 className="mt-7 text-balance text-[clamp(3.35rem,8.6vw,7.8rem)] font-semibold leading-[0.88] tracking-[-0.067em] text-slate-950">
+          <h1 className="mt-7 text-balance text-[clamp(2.82rem,8.6vw,7.8rem)] font-semibold leading-[0.91] tracking-[-0.067em] text-slate-950">
             School-controlled
-            <span className="block text-slate-400">operational awareness.</span>
+            <span className="block bg-[linear-gradient(90deg,#64748b_0%,#94a3b8_48%,#c2410c_125%)] bg-clip-text text-transparent">operational awareness.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-3xl text-balance text-lg leading-8 text-slate-600 sm:text-xl sm:leading-9">
             Review movement exceptions, pass activity, receiver health, and incident follow-up from one calm
@@ -337,7 +338,7 @@ function HeroSection() {
           transition={{ delay: 0.18, duration: 0.9, ease }}
           className="relative mx-auto mt-16 max-w-[78rem] sm:mt-20"
         >
-          <div className="absolute inset-x-[8%] bottom-[-4%] h-36 rounded-[50%] bg-orange-500/20 blur-[75px]" />
+          <div className="absolute inset-x-[8%] bottom-[-4%] h-36 rounded-[50%] bg-orange-600/[0.18] blur-[80px]" />
           <CommandFrame
             src="/product/overview.png"
             alt="Valkor command center showing the highest-priority school operations state, receiver health, confidence, and assigned response."
@@ -350,7 +351,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.72 + index * 0.12, duration: 0.5, ease }}
-              className={`absolute hidden min-w-44 rounded-2xl border border-white/80 bg-white/90 p-4 shadow-[0_18px_55px_rgba(15,23,42,0.16)] backdrop-blur-xl md:block ${item.className}`}
+              className={`absolute hidden min-w-44 rounded-xl border border-white/80 bg-[#fffdf9]/90 p-4 shadow-[0_18px_55px_rgba(15,23,42,0.13)] backdrop-blur-xl md:block ${item.className}`}
             >
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">{item.label}</p>
               <p className="mt-1.5 flex items-center gap-2 text-sm font-semibold text-slate-950">
@@ -373,14 +374,14 @@ function ProblemSection() {
   ];
 
   return (
-    <section className="bg-white px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section className="bg-[#fffdf9] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="The operational gap"
           title="Schools do not need more alerts. They need one shared state."
           description="Valkor turns disconnected building signals into a calm, reviewable workflow."
         />
-        <div className="mt-16 grid gap-px overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-200 shadow-sm lg:grid-cols-3">
+        <div className="mt-16 grid border-y border-slate-900/10 lg:grid-cols-3 lg:divide-x lg:divide-slate-900/10">
           {items.map(([title, description], index) => (
             <motion.div
               key={title}
@@ -388,9 +389,9 @@ function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ delay: index * 0.08, duration: 0.5, ease }}
-              className="bg-white p-7 sm:p-9"
+              className="border-b border-slate-900/10 bg-[#fffdf9] p-7 last:border-b-0 sm:p-9 lg:border-b-0"
             >
-              <span className="text-sm font-semibold text-orange-600">0{index + 1}</span>
+              <span className="text-sm font-semibold text-orange-700">0{index + 1}</span>
               <h3 className="mt-8 text-2xl font-semibold tracking-tight text-slate-950">{title}</h3>
               <p className="mt-3 max-w-sm text-sm leading-7 text-slate-600">{description}</p>
             </motion.div>
@@ -403,7 +404,7 @@ function ProblemSection() {
 
 function ProductProofSection() {
   return (
-    <section id="what-valkor-does" className="relative overflow-hidden bg-[#f3f0ec] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="what-valkor-does" className="relative overflow-hidden border-y border-slate-900/10 bg-[#eee9e1] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Product proof"
@@ -423,13 +424,13 @@ function ProductProofSection() {
             alt="Valkor operational awareness screen showing movement exceptions, incident context, staff response, and action history."
             className="relative"
           />
-          <div className="relative mx-auto -mt-1 grid max-w-5xl gap-px overflow-hidden rounded-b-[1.5rem] border border-slate-200 bg-slate-200 shadow-xl sm:grid-cols-3">
+          <div className="relative mx-auto -mt-1 grid max-w-5xl gap-px overflow-hidden rounded-b-xl border border-slate-900/10 bg-slate-900/10 sm:grid-cols-3">
             {[
               ["Priority before volume", "The next issue to review stays obvious."],
               ["Context before action", "Confidence and freshness travel with each event."],
               ["Ownership to outcome", "Assignment and follow-up remain visible."]
             ].map(([title, text]) => (
-              <div key={title} className="bg-white px-6 py-5">
+              <div key={title} className="bg-[#fffdf9] px-6 py-5">
                 <p className="text-sm font-semibold text-slate-950">{title}</p>
                 <p className="mt-1 text-xs leading-5 text-slate-500">{text}</p>
               </div>
@@ -443,7 +444,7 @@ function ProductProofSection() {
 
 function SignalSection() {
   return (
-    <section className="overflow-hidden bg-white px-5 py-24 sm:px-6 lg:px-8 lg:py-36">
+    <section className="overflow-hidden bg-[#fffdf9] px-5 py-24 sm:px-6 lg:px-8 lg:py-36">
       <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
         <div>
           <div className="lg:sticky lg:top-32">
@@ -454,7 +455,7 @@ function SignalSection() {
               align="left"
             />
             <div className="mt-9 hidden items-center gap-3 text-sm font-semibold text-slate-500 lg:flex">
-              <ArrowDown className="h-4 w-4 text-orange-600" aria-hidden="true" />
+              <ArrowDown className="h-4 w-4 text-orange-700" aria-hidden="true" />
               Follow the live system path
             </div>
           </div>
@@ -467,18 +468,18 @@ function SignalSection() {
               return (
                 <motion.article
                   key={step.title}
-                  initial={{ opacity: 0.35, x: 22 }}
+                  initial={{ opacity: 0, x: 16 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.65 }}
+                  viewport={{ once: true, amount: 0.55 }}
                   transition={{ duration: 0.5, ease }}
-                  className="group relative rounded-[1.6rem] border border-slate-200 bg-white p-5 pl-[5rem] shadow-sm transition duration-500 hover:-translate-y-0.5 hover:border-orange-200 hover:shadow-[0_24px_65px_rgba(249,115,22,0.1)] sm:p-7 sm:pl-[6.5rem]"
+                  className="group relative rounded-[1.25rem] border border-slate-900/10 bg-white/55 p-5 pl-[5rem] transition duration-500 hover:border-orange-700/25 hover:bg-white sm:p-7 sm:pl-[6.5rem]"
                 >
-                  <div className="absolute left-3.5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-orange-600 shadow-[0_0_0_8px_white] transition group-hover:bg-orange-600 group-hover:text-white sm:left-5 sm:h-12 sm:w-12">
+                  <div className="absolute left-3.5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-xl border border-orange-200 bg-orange-50 text-orange-700 shadow-[0_0_0_8px_#fffdf9] transition group-hover:bg-orange-700 group-hover:text-white sm:left-5 sm:h-12 sm:w-12">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div className="flex items-start justify-between gap-5">
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-600">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-700">
                         Step {String(index + 1).padStart(2, "0")}
                       </p>
                       <h3 className="mt-2 text-xl font-semibold tracking-tight text-slate-950">{step.title}</h3>
@@ -527,7 +528,7 @@ function DarkCommandCenterSection() {
               transition={{ delay: index * 0.06, duration: 0.45, ease }}
               className="rounded-2xl border border-white/10 bg-white/[0.055] p-4 backdrop-blur-xl"
             >
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">{label}</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">{label}</p>
               <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-white">
                 <StatusDot tone={tone} />
                 {value}
@@ -555,7 +556,7 @@ function DarkCommandCenterSection() {
 
 function LiveCardsSection() {
   return (
-    <section className="bg-[#fbfaf8] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section className="border-y border-slate-900/10 bg-[#f3eee7] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Live product states"
@@ -572,7 +573,7 @@ function LiveCardsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ delay: index * 0.07, duration: 0.55, ease }}
-                className="group rounded-[1.75rem] border border-slate-200/80 bg-white p-6 shadow-sm transition duration-500 hover:-translate-y-1 hover:border-orange-200 hover:shadow-[0_28px_80px_rgba(15,23,42,0.1)] sm:p-8"
+                className="group rounded-[1.25rem] border border-slate-900/10 bg-[#fffdf9]/85 p-6 transition duration-500 hover:border-orange-700/25 hover:bg-white sm:p-8"
               >
                 <div className="flex items-start justify-between gap-5">
                   <div>
@@ -582,7 +583,7 @@ function LiveCardsSection() {
                     </p>
                     <h3 className="mt-4 text-2xl font-semibold tracking-tight text-slate-950">{card.title}</h3>
                   </div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white transition group-hover:bg-orange-600">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-950 text-white transition group-hover:bg-orange-700">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
                 </div>
@@ -630,7 +631,7 @@ function ThreeSecondViewSection() {
   ];
 
   return (
-    <section className="bg-white px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section className="bg-[#fffdf9] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="The three-second AP view"
@@ -647,10 +648,10 @@ function ThreeSecondViewSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: index * 0.07, duration: 0.5, ease }}
-                className={`min-h-56 rounded-[1.75rem] p-7 ${
+                className={`min-h-56 rounded-[1.25rem] p-7 ${
                   block.featured
                     ? "bg-slate-950 text-white shadow-[0_28px_80px_rgba(15,23,42,0.2)] md:col-span-2"
-                    : "border border-slate-200 bg-[#fbfaf8] text-slate-950"
+                    : "border border-slate-900/10 bg-[#f3eee7] text-slate-950"
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -677,7 +678,7 @@ function ComparisonSection() {
   const after = ["Pass state", "Zone context", "Receiver health", "Assigned response", "Action history", "Pilot proof"];
 
   return (
-    <section className="overflow-hidden bg-[#f3f0ec] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section className="overflow-hidden border-y border-slate-900/10 bg-[#eee9e1] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeading eyebrow="Before and after" title="From scattered signals to a shared operating picture." />
         <div className="mt-16 grid gap-7 lg:grid-cols-2">
@@ -686,15 +687,15 @@ function ComparisonSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.65, ease }}
-            className="rounded-[2rem] border border-slate-300/70 bg-[#e9e6e1] p-7 sm:p-9"
+            className="border-l-2 border-slate-400 bg-transparent p-7 sm:p-9"
           >
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Before Valkor</p>
             <div className="mt-8 grid grid-cols-2 gap-3">
               {before.map((item, index) => (
                 <div
                   key={item}
-                  className={`rounded-2xl border border-slate-300 bg-white/65 px-4 py-4 text-sm font-semibold text-slate-600 shadow-sm ${
-                    index % 3 === 0 ? "-rotate-1" : index % 3 === 1 ? "translate-y-2 rotate-1" : "-translate-y-1"
+                  className={`border-b border-slate-400/60 bg-white/35 px-4 py-4 text-sm font-semibold text-slate-600 ${
+                    index % 3 === 0 ? "" : index % 3 === 1 ? "translate-y-2" : "-translate-y-1"
                   }`}
                 >
                   {item}
@@ -709,13 +710,13 @@ function ComparisonSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.65, ease }}
-            className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-7 text-white shadow-[0_34px_90px_rgba(15,23,42,0.22)] sm:p-9"
+            className="relative overflow-hidden rounded-[1.25rem] bg-slate-950 p-7 text-white shadow-[0_34px_90px_rgba(15,23,42,0.18)] sm:p-9"
           >
             <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-orange-600/20 blur-[90px]" />
             <p className="relative text-xs font-bold uppercase tracking-[0.2em] text-orange-300">With Valkor</p>
             <div className="relative mt-8 space-y-3">
               {after.map((item) => (
-                <div key={item} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-4">
+                <div key={item} className="flex items-center gap-4 border-b border-white/10 bg-white/[0.035] px-4 py-4 last:border-b-0">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-500/15 text-orange-300">
                     <Check className="h-4 w-4" aria-hidden="true" />
                   </span>
@@ -744,7 +745,7 @@ function PilotProofSection() {
   ];
 
   return (
-    <section className="bg-white px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section className="bg-[#fffdf9] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
         <SectionHeading
           eyebrow="Pilot proof"
@@ -758,11 +759,11 @@ function PilotProofSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.7, ease }}
-          className="overflow-hidden rounded-[2rem] border border-slate-200 bg-[#fbfaf8] shadow-[0_32px_100px_rgba(15,23,42,0.12)]"
+          className="overflow-hidden rounded-[1.25rem] border border-slate-900/10 bg-[#f3eee7] shadow-[0_32px_100px_rgba(15,23,42,0.09)]"
         >
           <div className="flex flex-col gap-5 border-b border-slate-200 bg-white p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">Pilot proof report</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700">Pilot proof report</p>
               <h3 className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">East Wing Pilot</h3>
             </div>
             <span className="w-fit rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">
@@ -819,7 +820,7 @@ function PilotProofSection() {
 
 function TrustSection() {
   return (
-    <section className="border-y border-slate-200 bg-[#fbfaf8] px-5 py-24 sm:px-6 lg:px-8 lg:py-28">
+    <section className="border-y border-slate-900/10 bg-[#f3eee7] px-5 py-24 sm:px-6 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Trust and privacy"
@@ -834,9 +835,9 @@ function TrustSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: index * 0.04, duration: 0.4, ease }}
-              className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4 text-sm font-semibold text-slate-700 shadow-sm"
+              className="flex items-center gap-3 rounded-xl border border-slate-900/10 bg-[#fffdf9] px-4 py-4 text-sm font-semibold text-slate-700"
             >
-              <ShieldCheck className="h-4 w-4 shrink-0 text-orange-600" aria-hidden="true" />
+              <ShieldCheck className="h-4 w-4 shrink-0 text-orange-700" aria-hidden="true" />
               {boundary}
             </motion.div>
           ))}
@@ -855,7 +856,7 @@ function DemoSection() {
   const chapters = ["Command view", "Route deviation", "Receiver health", "Pilot proof"];
 
   return (
-    <section id="demo" className="bg-white px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="demo" className="bg-[#fffdf9] px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Product walkthrough"
@@ -867,7 +868,7 @@ function DemoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.75, ease }}
-          className="relative mt-16 overflow-hidden rounded-[2rem] bg-slate-950 p-2 shadow-[0_36px_100px_rgba(15,23,42,0.2)] sm:p-3"
+          className="relative mt-16 overflow-hidden rounded-[1.25rem] bg-slate-950 p-2 shadow-[0_36px_100px_rgba(15,23,42,0.18)] sm:p-3"
         >
           <div className="relative overflow-hidden rounded-[1.45rem]">
             <Image
@@ -876,7 +877,7 @@ function DemoSection() {
               width={1800}
               height={1015}
               sizes="(min-width: 1280px) 1180px, 94vw"
-              className="aspect-[16/9] w-full object-cover object-left-top opacity-65"
+              className="aspect-[4/3] w-full object-cover object-left-top opacity-65 sm:aspect-[16/9]"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.06),rgba(2,6,23,0.55))]" />
             <Button
